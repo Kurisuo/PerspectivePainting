@@ -25,7 +25,7 @@ A modern, responsive website for Perspective Painting, a professional painting c
 - **Secondary**: #f7b32b (Warm Gold)
 - **Accent**: #f72c25(Vibrant Red)
 - **Background**: #f9f9 (Light Gray)
-- **Text**: #222ark Gray)
+- **Text**: #222ark Gray
 
 ## File Structure
 
