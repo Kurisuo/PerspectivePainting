@@ -6,10 +6,21 @@ body {
     font-family: Arial, sans-serif;
 }
 
+header {
+    height: 80px;
+    background: #555;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    margin: 0;
+}
+
 .main-logo {
-    position: absolute;
-    top: 20px;
-    left: 20px;
+    position: relative;
+    top: 0;
+    left: 0;
 }
 
 .main-logo img {
@@ -18,9 +29,9 @@ body {
 }
 
 .button-container {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+    position: relative;
+    top: 0;
+    right: 0;
     display: flex;
     gap: 15px;
 }
@@ -43,3 +54,40 @@ body {
     text-decoration: none;
     font-size: 16px;
 }
+
+.hero-section {
+    height: calc(100vh - 80px);
+    margin: 0;
+    padding: 0;
+    background-image: url('tran_one.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: backgroundTransition 8s infinite;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 100px;
+}
+
+.hero-section h1 {
+    color: white;
+    font-size: 5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    margin: 0;
+    line-height: 1.2;
+    text-align: left;
+}
+
+@keyframes backgroundTransition {
+  0%, 33% { 
+    background-image: url('tran_one.jpg'); 
+}
+34%, 66% { 
+    background-image: url('tran_two.jpg'); 
+}
+67%, 100% { 
+    background-image: url('tran_three.jpg'); 
+}
+}
+
