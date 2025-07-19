@@ -5,31 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 
     <title>Perspective Painting</title>
 </head>
 
 <body>
+    <div class="sub-header">
+        <div class="sub-header-content">
+            <span class="sub-header-text">Professional Painting Services</span>
+            <div class="sub-header-contact">
+                <span>📞 (555) 123-4567</span>
+                <span>📧 info@perspectivepainting.com</span>
+            </div>
+        </div>
+    </div>
+    
     <header>
         <div class="main-logo"> 
             <img src="perspective-logo-old.png" alt="Perspective Painting Logo">
         </div>
     
         <nav class="button-container">
-            <button class="nav-btn"><a href="Let'sTalk.html">Let's Talk</a></button>
-            <button class="nav-btn"><a href="Gallery.html">Gallery</a></button>
-            <button class="nav-btn"><a href="Contact.html">Contact</a></button>
+            <div class="dropdown">
+                <button class="nav-btn">About Us ▼</button>
+                <div class="dropdown-content">
+                    <a href="AboutUs.html">About Us</a>
+                    <a href="Gallery.html">Gallery</a>
+                    <a href="OurStory.html">Our Story</a>
+                    <a href="Mission.html">Mission & Values</a>
+                </div>
+            </div>
+            
+            <div class="dropdown">
+                <button class="nav-btn">Let's Talk ▼</button>
+                <div class="dropdown-content">
+                    <a href="Let'sTalk.html">Get Quote</a>
+                    <a href="Services.html">Our Services</a>
+                    <a href="Consultation.html">Free Consultation</a>
+                </div>
+            </div>
+            
+            <div class="dropdown">
+                <button class="nav-btn">Contact ▼</button>
+                <div class="dropdown-content">
+                    <a href="Contact.html">Contact Us</a>
+                    <a href="Location.html">Our Location</a>
+                    <a href="Hours.html">Business Hours</a>
+                </div>
+            </div>
         </nav>
     </header>
 
     <main>
         <section id="landing" class="hero-section">
-            <h1>Perspective<br>Painting</h1>
+            <!-- <div class="sun"></div> -->
+            <!-- <div class="water-stream"></div> -->
+            <!-- <div class="sailboat">
+                <img src="sailboat-logo.png" alt="Perspective Painting Sailboat Logo">
+            </div> -->
+            <!-- <h1>Perspective<br>Painting</h1> -->
         </section>
         
-        <section id="our-work" class="our-work-section"></section>
-        <section id="our-team" class="our-team-section"></section>
-        <section id="let's-work-together" class="let's-work-together-section"></section>
+        <section id="our-work" class="our-work-section">
+            <h2 class="section-title">Our Work</h2>
+        </section>
+        
+        <section id="our-team" class="our-team-section">
+            <h2 class="section-title">Our Team</h2>
+        </section>
+        
+        <section id="let's-work-together" class="together-section">
+            <h2 class="section-title">Let's Work Together</h2>
+        </section>
     </main>
 </body>
 </html>
