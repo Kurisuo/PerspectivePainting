@@ -30,3 +30,21 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial check for elements already in viewport
     handleScrollAnimations();
 });
+
+// Image Slider Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    let next = document.querySelector('.next')
+    let prev = document.querySelector('.prev')
+
+    if (next && prev) {
+        next.addEventListener('click', function(){
+            let items = document.querySelectorAll('.item')
+            document.querySelector('.slide').appendChild(items[0])
+        })
+
+        prev.addEventListener('click', function(){
+            let items = document.querySelectorAll('.item')
+            document.querySelector('.slide').prepend(items[items.length - 1]) // here the length of items = 6
+        })
+    }
+});
