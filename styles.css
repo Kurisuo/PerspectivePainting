@@ -456,3 +456,145 @@ header {
     color: #fff;
 }
 
+/* Team Section 3D Carousel */
+.team-banner{
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    margin-top: -40px;
+}
+
+.team-banner .team-slider{
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    top: 50%;
+    left: calc(50% - 100px);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    animation: teamAutoRun 20s linear infinite;
+    z-index: 2;
+}
+
+@keyframes teamAutoRun{
+    from{
+        transform: perspective(1000px) rotateY(0deg);
+    }to{
+        transform: perspective(1000px) rotateY(360deg);
+    }
+}
+
+.team-banner .team-slider .team-item{
+    position: absolute;
+    inset: 0 0 0 0;
+    transform: 
+        rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+        translateZ(350px);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.team-banner .team-slider .team-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.team-banner .team-content{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1400px, 100vw);
+    height: max-content;
+    padding-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+
+.team-banner .team-content h1{
+    font-family: Arial, sans-serif;
+    font-size: 8em;
+    line-height: 1em;
+    color: white;
+    position: relative;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+.team-banner .team-content h1::after{
+    position: absolute;
+    inset: 0 0 0 0;
+    content: attr(data-content);
+    z-index: 2;
+    -webkit-text-stroke: 2px rgba(255,255,255,0.3);
+    color: transparent;
+}
+
+.team-banner .team-content .team-info{
+    font-family: Arial, sans-serif;
+    text-align: right;
+    max-width: 300px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+.team-banner .team-content h2{
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.team-banner .team-content .team-info p{
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+/* Team Section Responsive Design */
+@media screen and (max-width: 1023px) {
+    .team-banner .team-slider{
+        width: 160px;
+        height: 200px;
+        left: calc(50% - 80px);
+    }
+    .team-banner .team-slider .team-item{
+        transform: 
+            rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+            translateZ(200px);
+    }
+    .team-banner .team-content h1{
+        text-align: center;
+        width: 100%;
+        font-size: 4em;
+    }
+    .team-banner .team-content .team-info{
+        color: white;
+        padding: 20px;
+        z-index: 2;
+        max-width: unset;
+        width: 100%;
+        text-align: center;
+        padding: 0 30px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .team-banner .team-slider{
+        width: 100px;
+        height: 150px;
+        left: calc(50% - 50px);
+    }
+    .team-banner .team-slider .team-item{
+        transform: 
+            rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+            translateZ(120px);
+    }
+    .team-banner .team-content h1{
+        font-size: 3em;
+    }
+}
+
