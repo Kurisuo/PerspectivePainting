@@ -25,12 +25,6 @@ body {
     color: white;
 }
 
-.sub-header-text {
-    font-weight: bold;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-    font-size: 22px;
-}
-
 .sub-header-contact {
     display: flex;
     gap: 40px;
@@ -39,17 +33,36 @@ body {
     font-size: 18px;
 }
 
+.social-media {
+    margin-left: 5px;
+}
+
+.sub-header-text {
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    font-size: 22px;
+}
+
+.sub-header-contact {
+    display: flex;
+    gap: 30px;
+    margin-left: auto;
+    margin-right: 0;
+    font-size: 20px;
+    align-items: center;
+}
+
 .sub-header-contact span {
     opacity: 0.9;
 }
 
 .social-media {
-    margin-left: 10px;
+    margin-left: 0;
 }
 
 .social-media a {
-    color: #E4405F;
-    font-size: 24px;
+    color: white;
+    font-size: 28px;
     text-decoration: none;
     transition: opacity 0.3s;
 }
@@ -134,7 +147,7 @@ header::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
@@ -190,10 +203,12 @@ header > * {
 .dropdown {
     position: relative;
     display: inline-block;
+    
 }
 
+
 .dropdown-content {
-    display: none;
+    display: block;
     position: absolute;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
@@ -204,10 +219,16 @@ header > * {
     top: 100%;
     left: 0;
     margin-top: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
 }
 
 .dropdown:hover .dropdown-content {
-    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
 .dropdown-content a {
@@ -233,7 +254,7 @@ header > * {
     cursor: pointer;
     transition: all 0.3s;
     color: white;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 500;
 }
 
@@ -246,6 +267,27 @@ header > * {
     color: white;
     text-decoration: none;
     font-size: 16px;
+}
+
+.quote-btn {
+    padding: 15px 25px;
+    background: #FF6B35;
+    border: 2px solid #FF6B35;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: white;
+    font-size: 22px;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.quote-btn:hover {
+    background: #FF8C42;
+    border-color: #FF8C42;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .hero-section {
@@ -265,7 +307,24 @@ header > * {
 }
 
 .quote-text{
-    
+    font-family: 'Inter', sans-serif;
+    font-size: 5.5rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 5px 3px 6px rgba(0,0,0,0.6), 10px 6px 12px rgba(0,0,0,0.4);
+    margin: 0;
+    line-height: 1.2;
+    position: absolute;
+    left: 100px;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 700px;
+}
+
+.quote-text br:nth-of-type(1) {
+    display: block;
+    margin-top: 20px;
+    content: "";
 }
 
 
