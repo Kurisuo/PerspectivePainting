@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="San Diego's premier painting company. Professional interior, exterior, and commercial painting services. Free estimates. Licensed & insured. Call (619) 818-4816">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <title>Perspective Painting</title>
+    <title>Perspective Painting - San Diego's Premier Painting Company | Professional Interior & Exterior Painting</title>
     
     <style>
 /* CSS Reset and Base Styles */
@@ -19,271 +20,490 @@
     box-sizing: border-box;
 }
 
+:root {
+    /* Professional Color Scheme - Deep & Sophisticated */
+    --primary: #D4AF37; /* Elegant Gold */
+    --secondary: #1B4F72; /* Deep Navy Blue */
+    --accent: #2E86AB; /* Professional Blue */
+    --dark: #0A1929; /* Rich Dark Blue */
+    --light-bg: #F5F7FA; /* Soft Gray Blue */
+    --soft-bg: #E8ECF1; /* Light Gray */
+    --neutral-bg: #2C3E50; /* Charcoal Blue */
+    --warm-bg: #34495E; /* Warm Gray */
+    --text-dark: #1A1A1A;
+    --text-light: #5A6C7D;
+    --white: #FFFFFF;
+    --gradient-warm: linear-gradient(135deg, #D4AF37 0%, #B8941F 100%);
+    --gradient-cool: linear-gradient(135deg, #1B4F72 0%, #2E86AB 100%);
+    --gradient-dark: linear-gradient(135deg, #0A1929 0%, #1B4F72 100%);
+    --gradient-hero: linear-gradient(180deg, rgba(10,25,41,0.95) 0%, rgba(27,79,114,0.85) 100%);
+    --gradient-soft: linear-gradient(135deg, #F5F7FA 0%, #E8ECF1 100%);
+    --gradient-premium: linear-gradient(135deg, #1A1A1A 0%, #2C3E50 50%, #34495E 100%);
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.15);
+    --shadow-gold: 0 10px 30px rgba(212, 175, 55, 0.2);
+    --radius: 20px;
+    --transition: all 0.3s ease;
+    
+    /* Alternative Color Scheme 1 - Warm & Inviting
+    --primary: #E67E22;
+    --secondary: #2C3E50;
+    --accent: #3498DB;
+    --dark: #1A1A1A;
+    --gradient-warm: linear-gradient(135deg, #E67E22 0%, #D35400 100%);
+    --gradient-cool: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);
+    --gradient-hero: linear-gradient(180deg, rgba(26,26,26,0.95) 0%, rgba(44,62,80,0.85) 100%);
+    */
+    
+    /* Alternative Color Scheme 2 - Modern & Bold
+    --primary: #6C5CE7;
+    --secondary: #2D3436;
+    --accent: #00B894;
+    --dark: #0A0E27;
+    --gradient-warm: linear-gradient(135deg, #6C5CE7 0%, #5F3DC4 100%);
+    --gradient-cool: linear-gradient(135deg, #2D3436 0%, #636E72 100%);
+    --gradient-hero: linear-gradient(180deg, rgba(10,14,39,0.95) 0%, rgba(45,52,54,0.85) 100%);
+    */
+}
+
+/* Loading Screen */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-premium);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+
+.loading-screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loader {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.loader-circle {
+    position: absolute;
+    border: 4px solid transparent;
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.loader-circle:nth-child(1) {
+    width: 100px;
+    height: 100px;
+    animation-duration: 0.8s;
+}
+
+.loader-circle:nth-child(2) {
+    width: 80px;
+    height: 80px;
+    top: 10px;
+    left: 10px;
+    border-top-color: var(--accent);
+    animation-duration: 1s;
+    animation-direction: reverse;
+}
+
+.loader-circle:nth-child(3) {
+    width: 60px;
+    height: 60px;
+    top: 20px;
+    left: 20px;
+    border-top-color: white;
+    animation-duration: 1.2s;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 body {
-    font-family: 'Inter', sans-serif;
-    background: #f5f5f5;
+    font-family: 'Poppins', sans-serif;
+    background: #F5F7FA;
     min-height: 100vh;
     overflow-x: hidden;
     scroll-behavior: smooth;
+    color: var(--text-dark);
+    line-height: 1.6;
 }
 
-/* Sub-header */
-.sub-header {
-    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
-    padding: 12px 0;
+/* Common Styles */
+.section-padding {
+    padding: 100px 20px;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.gradient-text {
+    background: var(--gradient-warm);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.btn {
+    padding: 14px 32px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: var(--transition);
+    display: inline-block;
     position: relative;
     overflow: hidden;
 }
 
-.sub-header::before {
+.btn::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-    animation: shimmer 3s infinite;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
 }
 
-@keyframes shimmer {
-    to { left: 100%; }
+.btn:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
-.sub-header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 0 20px;
-    gap: 10px;
-}
-
-.sub-header-text {
+.btn-primary {
+    background: var(--gradient-warm);
     color: white;
-    font-weight: 600;
-    font-size: 14px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-    margin-right: auto;
-    white-space: nowrap;
+    box-shadow: var(--shadow-gold);
 }
 
-.sub-header-contact {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    margin-left: auto;
-}
-
-.sub-header-contact span {
-    color: white;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    white-space: nowrap;
-}
-
-.social-media a {
-    color: white;
-    font-size: 18px;
-    transition: transform 0.3s ease;
-}
-
-.social-media a:hover {
+.btn-primary:hover {
     transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
 }
 
-/* Header */
+.btn-secondary {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: var(--secondary);
+}
+
+/* Sticky CTA Button */
+.sticky-cta {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 997;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: var(--transition);
+}
+
+.sticky-cta.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sticky-cta-btn {
+    background: var(--gradient-warm);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: var(--shadow-gold);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition);
+}
+
+.sticky-cta-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--gradient-cool);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: var(--transition);
+    z-index: 996;
+    box-shadow: 0 5px 20px rgba(27, 79, 114, 0.4);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(27, 79, 114, 0.5);
+}
+
+/* Professional Integrated Header */
 header {
-    background: linear-gradient(135deg, #87CEEB 0%, #4A90E2 100%);
+    background: var(--white);
     padding: 20px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
 }
 
-header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.1);
-    z-index: 1;
-}
-
-header > * {
-    position: relative;
-    z-index: 2;
+header.scrolled {
+    padding: 15px 0;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.12);
 }
 
 .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
     padding: 0 20px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 40px;
 }
 
 .main-logo {
     display: flex;
     align-items: center;
-    gap: 20px;
-    margin-right: auto;
+    gap: 15px;
+    text-decoration: none;
 }
 
 .main-logo img {
-    height: 60px;
+    height: 55px;
     width: auto;
-    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+    transition: transform 0.3s ease;
+}
+
+.main-logo:hover img {
+    transform: scale(1.05);
 }
 
 .company-name {
-    color: white;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    font-size: 26px;
+    line-height: 1;
+    font-weight: 700;
+    color: var(--dark);
 }
 
-.company-name .perspective,
+.company-name .perspective {
+    color: var(--primary);
+}
+
 .company-name .painting {
-    font-size: 28px;
-    line-height: 0.9;
-    display: block;
+    color: var(--secondary);
+}
+
+.header-contact-info {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    color: var(--text-dark);
+    font-size: 14px;
+}
+
+.header-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--text-dark);
+    transition: var(--transition);
+}
+
+.header-contact-item:hover {
+    color: var(--primary);
+}
+
+.header-contact-item i {
+    color: var(--primary);
+    font-size: 16px;
 }
 
 /* Navigation */
-.header-right {
+.nav-container {
     display: flex;
     align-items: center;
-    gap: 20px;
-    margin-left: auto;
+    gap: 40px;
 }
 
-.button-container {
+.nav-menu {
     display: flex;
-    gap: 15px;
-    margin-right: 20px;
+    gap: 35px;
 }
 
-.dropdown {
+.nav-item {
     position: relative;
 }
 
-.nav-btn {
-    background: rgba(255,255,255,0.2);
-    border: 2px solid rgba(255,255,255,0.3);
+.nav-link {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    transition: var(--transition);
+    padding: 10px 0;
+    display: block;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    min-width: 220px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    margin-top: 15px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.nav-item:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    margin-top: 5px;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 14px 24px;
+    color: var(--text-dark);
+    text-decoration: none;
+    font-size: 14px;
+    transition: var(--transition);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dropdown-menu a:last-child {
+    border-bottom: none;
+}
+
+.dropdown-menu a:hover {
+    background: var(--light-bg);
+    color: var(--primary);
+    padding-left: 28px;
+}
+
+.quote-btn {
+    background: var(--gradient-warm);
     color: white;
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 14px 28px;
+    border-radius: 30px;
+    text-decoration: none;
     font-weight: 600;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
+    font-size: 15px;
+    transition: var(--transition);
+    box-shadow: var(--shadow-gold);
+    display: inline-flex;
     align-items: center;
     gap: 8px;
 }
 
-.nav-btn:hover {
-    background: rgba(255,255,255,0.3);
-    transform: translateY(-2px);
-}
-
-.nav-btn i {
-    font-size: 12px;
-    transition: transform 0.3s ease;
-}
-
-.dropdown:hover .nav-btn i {
-    transform: rotate(180deg);
-}
-
-.dropdown-content {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: white;
-    min-width: 200px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-    margin-top: 10px;
-}
-
-.dropdown:hover .dropdown-content {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.dropdown-content a {
-    color: #333;
-    padding: 12px 20px;
-    display: block;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    font-weight: 500;
-}
-
-.dropdown-content a:first-child {
-    border-radius: 12px 12px 0 0;
-}
-
-.dropdown-content a:last-child {
-    border-radius: 0 0 12px 12px;
-}
-
-.dropdown-content a:hover {
-    background: linear-gradient(135deg, #87CEEB 0%, #4A90E2 100%);
-    color: white;
-    padding-left: 25px;
-}
-
-.quote-btn {
-    background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
-    color: white;
-    padding: 12px 24px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255,107,53,0.3);
-    white-space: nowrap;
-}
-
 .quote-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255,107,53,0.4);
+    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.3);
 }
 
-/* Mobile Menu */
+.quote-btn i {
+    font-size: 14px;
+}
+
+/* Mobile Menu Button */
 .mobile-menu-btn {
     display: none;
     flex-direction: column;
     gap: 4px;
     cursor: pointer;
-    z-index: 1001;
     padding: 5px;
-    margin-left: 15px;
+    background: none;
+    border: none;
 }
 
 .mobile-menu-btn span {
     width: 25px;
     height: 3px;
-    background: white;
+    background: var(--secondary);
     border-radius: 3px;
-    transition: all 0.3s ease;
+    transition: var(--transition);
 }
 
 .mobile-menu-btn.active span:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 6px);
+    transform: rotate(45deg) translate(5px, 5px);
 }
 
 .mobile-menu-btn.active span:nth-child(2) {
@@ -291,142 +511,118 @@ header > * {
 }
 
 .mobile-menu-btn.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
+    transform: rotate(-45deg) translate(7px, -6px);
 }
 
-.mobile-menu-overlay {
+/* Mobile Navigation */
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 400px;
+    height: 100vh;
+    background: white;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+    transition: right 0.3s ease;
+    z-index: 999;
+    overflow-y: auto;
+}
+
+.mobile-nav.active {
+    right: 0;
+}
+
+.mobile-nav-content {
+    padding: 20px;
+}
+
+.mobile-nav-close {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 30px;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-dark);
+}
+
+.mobile-nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.mobile-nav-item {
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding-bottom: 15px;
+}
+
+.mobile-nav-link {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    display: block;
+    padding: 10px 0;
+}
+
+.mobile-dropdown {
+    margin-top: 10px;
+    padding-left: 20px;
+    display: none;
+}
+
+.mobile-nav-item.active .mobile-dropdown {
+    display: block;
+}
+
+.mobile-dropdown a {
+    display: block;
+    padding: 8px 0;
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.mobile-dropdown a:hover {
+    color: var(--primary);
+}
+
+/* Overlay */
+.overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.95);
-    z-index: 9999;
+    background: rgba(0,0,0,0.5);
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
+    transition: var(--transition);
+    z-index: 998;
 }
 
-.mobile-menu-overlay.active {
+.overlay.active {
     opacity: 1;
     visibility: visible;
 }
 
-.mobile-menu-content {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 80%;
-    max-width: 400px;
-    height: 100%;
-    background: linear-gradient(135deg, #1e3a8a 0%, #87CEEB 100%);
-    padding: 30px;
-    overflow-y: auto;
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-}
-
-.mobile-menu-overlay.active .mobile-menu-content {
-    transform: translateX(0);
-}
-
-.mobile-menu-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-}
-
-.mobile-close-btn {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-.mobile-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-.mobile-nav-section h3 {
-    color: white;
-    font-size: 18px;
-    margin-bottom: 15px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid rgba(255,255,255,0.3);
-}
-
-.mobile-nav-section a {
-    display: block;
-    color: white;
-    text-decoration: none;
-    padding: 10px 15px;
-    margin: 5px 0;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-}
-
-.mobile-nav-section a:hover {
-    background: rgba(255,255,255,0.2);
-    padding-left: 20px;
-}
-
-/* Hero Section with Slideshow Background */
+/* Enhanced Hero Section */
 .hero-section {
-    min-height: calc(100vh - 80px);
+    min-height: 100vh;
     position: relative;
     display: flex;
     align-items: center;
-    padding: 60px 20px;
-    overflow: hidden;
-}
-
-/* Background Slideshow */
-.hero-backgrounds {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-}
-
-.hero-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    background-image: url('team.jpg');
     background-size: cover;
     background-position: center;
-    opacity: 0;
-    animation: heroSlideshow 15s infinite;
-}
-
-.hero-bg:nth-child(1) {
-    background-image: url('house_1.jpg');
-    animation-delay: 0s;
-}
-
-.hero-bg:nth-child(2) {
-    background-image: url('house_2.jpg');
-    animation-delay: 5s;
-}
-
-.hero-bg:nth-child(3) {
-    background-image: url('house_3.jpg');
-    animation-delay: 10s;
-}
-
-@keyframes heroSlideshow {
-    0% { opacity: 0; }
-    5% { opacity: 1; }
-    33% { opacity: 1; }
-    38% { opacity: 0; }
-    100% { opacity: 0; }
+    background-attachment: fixed;
+    overflow: hidden;
 }
 
 .hero-overlay {
@@ -435,452 +631,1944 @@ header > * {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(135,206,235,0.85) 0%, rgba(255,179,71,0.85) 50%, rgba(255,107,53,0.85) 100%);
+    background: var(--gradient-hero);
     z-index: 1;
 }
 
-.hero-section-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* Animated Background Elements */
+.hero-bg-animation {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.hero-bg-animation .shape {
+    position: absolute;
+    background: rgba(212, 175, 55, 0.03);
+    border-radius: 50%;
+    animation: float 20s infinite ease-in-out;
+}
+
+.hero-bg-animation .shape:nth-child(1) {
+    width: 300px;
+    height: 300px;
+    top: -150px;
+    right: -150px;
+    animation-delay: 0s;
+}
+
+.hero-bg-animation .shape:nth-child(2) {
+    width: 200px;
+    height: 200px;
+    bottom: -100px;
+    left: -100px;
+    animation-delay: 5s;
+}
+
+.hero-bg-animation .shape:nth-child(3) {
+    width: 400px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    animation-delay: 10s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    25% {
+        transform: translate(30px, -50px) scale(1.1);
+    }
+    50% {
+        transform: translate(-20px, 30px) scale(0.9);
+    }
+    75% {
+        transform: translate(40px, 20px) scale(1.05);
+    }
+}
+
+.hero-content-wrapper {
+    position: relative;
+    z-index: 3;
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
-    position: relative;
-    z-index: 2;
-    gap: 40px;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 60px;
+    align-items: center;
 }
 
-.hero-content {
-    flex: 1;
-    max-width: 600px;
-}
-
-.company-name-hero {
-    font-size: clamp(24px, 5vw, 48px);
+.hero-main {
     color: white;
-    font-weight: bold;
+    animation: fadeInUp 1s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-title {
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    line-height: 1.1;
     margin-bottom: 20px;
-    text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: 3px solid white;
-    animation: typing 3s steps(30) 0.5s forwards, blink 0.75s step-end infinite;
+    animation: heroTitle 1s ease 0.2s both;
 }
 
-@keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
+@keyframes heroTitle {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
-@keyframes blink {
-    50% { border-color: transparent; }
+.hero-subtitle {
+    font-size: clamp(22px, 3vw, 36px);
+    color: var(--primary);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    animation: heroTitle 1s ease 0.4s both;
 }
 
 .company-descriptor {
-    font-size: clamp(16px, 3vw, 24px);
-    color: #FFD700;
+    font-size: 18px;
     margin-bottom: 30px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    opacity: 0.9;
+    animation: heroTitle 1s ease 0.6s both;
 }
 
-.main-quote {
-    font-size: clamp(36px, 7vw, 72px);
-    color: white;
-    font-weight: bold;
-    text-transform: uppercase;
-    line-height: 1.1;
-    text-shadow: 4px 4px 8px rgba(0,0,0,0.4);
-    margin-bottom: 30px;
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    animation: heroTitle 1s ease 0.8s both;
 }
 
-.call-now-btn {
-    background: linear-gradient(135deg, #28a745 0%, #34ce57 100%);
-    color: white;
-    padding: 16px 32px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 20px;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(40,167,69,0.3);
-}
-
-.call-now-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(40,167,69,0.4);
-}
-
-/* Contact Form */
+/* Enhanced Contact Form */
 .contact-form-container {
-    background: rgba(255,255,255,0.95);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
     padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    border-radius: var(--radius);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
     max-width: 400px;
-    width: 100%;
+    position: relative;
+    animation: fadeInRight 1s ease 0.5s both;
+    border: 1px solid rgba(212, 175, 55, 0.2);
 }
 
-.contact-form-container h3 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #333;
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.form-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(0,0,0,0.1);
+    border-radius: var(--radius) var(--radius) 0 0;
+    overflow: hidden;
+}
+
+.form-progress-bar {
+    height: 100%;
+    background: var(--gradient-warm);
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.form-header {
     text-align: center;
+    margin-bottom: 25px;
+}
+
+.form-header h3 {
+    font-size: 24px;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.form-header p {
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    color: #555;
-    font-weight: 500;
+    position: relative;
 }
 
 .form-group input,
-.form-group textarea {
+.form-group select {
     width: 100%;
-    padding: 12px 15px;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    font-family: 'Inter', sans-serif;
+    padding: 12px 16px;
+    border: 2px solid rgba(0,0,0,0.1);
+    border-radius: 10px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: var(--transition);
+    background: rgba(245, 247, 250, 0.7);
 }
 
 .form-group input:focus,
-.form-group textarea:focus {
+.form-group select:focus {
     outline: none;
-    border-color: #4A90E2;
-    box-shadow: 0 0 0 3px rgba(74,144,226,0.1);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+    background: white;
 }
 
-.form-group textarea {
-    resize: vertical;
-    min-height: 100px;
+.form-group.filled input,
+.form-group.filled select {
+    border-color: var(--accent);
 }
 
-.submit-btn {
-    width: 100%;
-    background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
+.form-submit {
+    background: var(--gradient-warm);
     color: white;
-    padding: 14px 24px;
+    padding: 14px 32px;
     border: none;
-    border-radius: 50px;
-    font-size: 18px;
+    border-radius: 30px;
+    font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255,107,53,0.3);
-}
-
-.submit-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255,107,53,0.4);
-}
-
-/* Sections */
-.our-work-section,
-.our-team-section,
-.together-section {
-    min-height: 100vh;
-    padding: 80px 20px;
+    transition: var(--transition);
+    box-shadow: var(--shadow-gold);
     position: relative;
+    overflow: hidden;
+}
+
+.form-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+}
+
+/* Wave Transition */
+.wave-transition {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.wave-transition svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 80px;
+}
+
+.wave-transition .shape-fill {
+    fill: #F5F7FA;
+}
+
+/* Promise Section (New) */
+.promise-section {
+    padding: 80px 20px;
+    background: #F5F7FA;
+    position: relative;
+}
+
+.promise-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.promise-header h2 {
+    font-size: 42px;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.promise-header p {
+    font-size: 20px;
+    color: var(--text-light);
+}
+
+.promise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.promise-card {
+    background: white;
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.promise-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--gradient-warm);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.promise-card:hover::before {
+    transform: scaleX(1);
+}
+
+.promise-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.promise-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-warm);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 24px;
+    color: white;
+}
+
+.promise-card h3 {
+    font-size: 20px;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.promise-card p {
+    font-size: 15px;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* What We Do Section Enhanced */
+.services-list-section {
+    background: var(--gradient-soft);
+    padding: 100px 20px 50px;
+    position: relative;
+}
+
+.services-list-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.services-list-header h3 {
+    font-size: 42px;
+    color: var(--text-dark);
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.services-list-header p {
+    font-size: 18px;
+    color: var(--text-light);
+}
+
+.services-list-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.service-list-item {
+    background: white;
+    padding: 40px 30px;
+    border-radius: var(--radius);
+    text-align: center;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.service-list-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--gradient-warm);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.service-list-item:hover::before {
+    transform: scaleX(1);
+}
+
+.service-list-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+.service-list-item:hover i {
+    transform: rotateY(360deg);
+}
+
+.service-list-item i {
+    font-size: 48px;
+    background: var(--gradient-warm);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.service-list-item h4 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.service-list-item p {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* Process Timeline (New) */
+.process-section {
+    padding: 100px 20px;
+    background: linear-gradient(180deg, #E8ECF1 0%, #F5F7FA 100%);
+}
+
+.process-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.process-header h2 {
+    font-size: 42px;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.process-timeline {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.process-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: var(--gradient-warm);
+}
+
+.process-step {
+    position: relative;
+    margin-bottom: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.our-work-section {
-    background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 50%, #FFA07A 100%);
+.process-step:nth-child(even) {
+    flex-direction: row-reverse;
 }
 
-.our-team-section {
-    background: linear-gradient(135deg, #FFA07A 0%, #FFB6C1 50%, #FFC0CB 100%);
-}
-
-.together-section {
-    background: linear-gradient(135deg, #FFC0CB 0%, #E6E6FA 50%, #F0F8FF 100%);
-}
-
-.section-title {
-    font-size: clamp(32px, 6vw, 64px);
-    color: white;
-    text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
-    margin-bottom: 60px;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease;
-}
-
-.visible .section-title {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Image Slider */
-.slider-wrapper {
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 40px;
-}
-
-.container {
-    width: 100%;
-    max-width: 600px;
-    height: 400px;
+.process-content {
+    flex: 0 1 45%;
+    padding: 30px;
     background: white;
-    border-radius: 20px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-    overflow: hidden;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
     position: relative;
     opacity: 0;
-    transform: scale(0.9);
-    transition: all 0.8s ease;
-    cursor: grab;
-    user-select: none;
+    transform: translateX(-30px);
+    animation: fadeInLeft 0.8s ease forwards;
+    border: 1px solid rgba(0,0,0,0.05);
 }
 
-.container.dragging {
-    cursor: grabbing;
+.process-step:nth-child(even) .process-content {
+    transform: translateX(30px);
+    animation: fadeInRight 0.8s ease forwards;
 }
 
-.visible .container {
-    opacity: 1;
-    transform: scale(1);
+@keyframes fadeInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
-.slide {
+.process-number {
     position: relative;
-    height: 100%;
-    display: flex;
-    transition: transform 0.3s ease;
-}
-
-.item {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 20px;
-    background-size: cover;
-    background-position: center;
-    transition: all 0.5s ease;
-    cursor: pointer;
-    flex-shrink: 0;
-}
-
-.item.active {
-    position: relative;
-    z-index: 10;
-}
-
-.item:not(.active) {
-    transform: scale(0.8) translateX(calc(var(--offset) * 220px));
-    opacity: 0.6;
-}
-
-.content {
-    position: absolute;
-    bottom: 30px;
-    left: 30px;
-    color: white;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.item.active .content {
-    opacity: 1;
-}
-
-.content .name {
-    font-size: 36px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-}
-
-.content .des {
-    font-size: 16px;
-    margin-bottom: 20px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
-}
-
-.content button {
-    background: #FF6B35;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.content button:hover {
-    background: #FF8C42;
-    transform: translateY(-2px);
-}
-
-.button {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-    z-index: 20;
-}
-
-.button button {
-    width: 40px;
-    height: 40px;
+    flex: 0 0 60px;
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-warm);
     border-radius: 50%;
-    border: 2px solid white;
-    background: rgba(255,255,255,0.2);
-    color: white;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.button button:hover {
-    background: rgba(255,255,255,0.4);
-    transform: scale(1.1);
-}
-
-/* Team Section */
-.team-section-content {
     display: flex;
     align-items: center;
-    gap: 60px;
-    max-width: 1400px;
-    margin: 0 auto;
-    width: 100%;
-}
-
-.team-details {
-    flex: 1;
+    justify-content: center;
     color: white;
-    opacity: 0;
-    transition: all 0.5s ease;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: var(--shadow-gold);
+    margin: 0 30px;
+    z-index: 2;
 }
 
-.team-details.active {
-    opacity: 1;
+.process-content h3 {
+    font-size: 22px;
+    color: var(--text-dark);
+    margin-bottom: 10px;
 }
 
-.team-details h2 {
-    font-size: clamp(32px, 4vw, 48px);
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-}
-
-.team-details .role {
-    font-size: clamp(20px, 2.5vw, 28px);
-    color: #FFD700;
-    margin-bottom: 20px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-}
-
-.team-details .bio {
-    font-size: clamp(16px, 2vw, 20px);
+.process-content p {
+    color: var(--text-light);
     line-height: 1.6;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
-.team-carousel-container {
+/* Work Showcase Carousel */
+.work-showcase {
+    margin-top: 60px;
     position: relative;
-    width: 400px;
-    height: 500px;
+    overflow: hidden;
+    padding: 20px 0;
 }
 
-.team-carousel {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    cursor: grab;
-    user-select: none;
+.showcase-title {
+    text-align: center;
+    font-size: 24px;
+    color: var(--text-dark);
+    margin-bottom: 30px;
+    font-weight: 700;
 }
 
-.team-carousel.dragging {
-    cursor: grabbing;
+.showcase-carousel {
+    display: flex;
+    animation: scroll 30s linear infinite;
 }
 
-.team-member {
-    position: absolute;
-    width: 200px;
-    height: 250px;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+.showcase-carousel:hover {
+    animation-play-state: paused;
+}
+
+.showcase-item {
+    flex: 0 0 300px;
+    height: 200px;
+    margin: 0 15px;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    transition: all 0.5s ease;
-    cursor: pointer;
+    position: relative;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
 }
 
-.team-member img {
+.showcase-item:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+}
+
+.showcase-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.team-member.active {
-    width: 280px;
-    height: 350px;
+.showcase-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(1,22,39,0.8) 0%, transparent 100%);
+    padding: 20px;
+    transform: translateY(100%);
+    transition: var(--transition);
+}
+
+.showcase-item:hover .showcase-overlay {
+    transform: translateY(0);
+}
+
+.showcase-overlay h5 {
+    color: white;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.showcase-overlay p {
+    color: rgba(255,255,255,0.8);
+    font-size: 14px;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-315px * 7));
+    }
+}
+
+/* Gallery Section Enhanced */
+.gallery-section {
+    padding: 100px 0;
+    background: linear-gradient(180deg, #F5F7FA 0%, #E8ECF1 50%, #F5F7FA 100%);
+    position: relative;
+}
+
+.gallery-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.gallery-header h2 {
+    font-size: 48px;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.gallery-header p {
+    font-size: 20px;
+    color: var(--text-light);
+}
+
+/* Before/After Slider (New) */
+.before-after-container {
+    max-width: 800px;
+    margin: 0 auto 60px;
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.before-after-slider {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.before-image,
+.after-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.after-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: width 0.3s ease;
+}
+
+.slider-handle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 100%;
+    background: white;
+    cursor: ew-resize;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-handle::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: var(--gradient-warm);
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-handle::after {
+    content: '⟷';
+    position: absolute;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.before-label,
+.after-label {
+    position: absolute;
+    top: 20px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.before-label {
+    left: 20px;
+}
+
+.after-label {
+    right: 20px;
+}
+
+/* Gallery Slider */
+.slider {
+    height: 70vh;
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.slider .list .item {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: .5s;
+}
+
+.slider .list .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slider .list .item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(to top, rgba(1,22,39,0.9) 0%, transparent 100%);
+}
+
+.slider .list .item .content {
+    position: absolute;
+    left: 10%;
+    bottom: 10%;
+    width: 500px;
+    max-width: 80%;
+    z-index: 1;
+}
+
+.slider .list .item .content p:nth-child(1) {
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    background: var(--gradient-warm);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.slider .list .item .content h2 {
+    font-size: clamp(32px, 5vw, 64px);
+    margin: 10px 0;
+    color: white;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.slider .list .item .content p:nth-child(3) {
+    color: rgba(255,255,255,0.9);
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+.slider .list .item.active {
+    opacity: 1;
     z-index: 10;
 }
 
-.team-member:not(.active) {
-    transform: translate(-50%, -50%) scale(0.8) translateX(calc(var(--offset) * 120px));
-    opacity: 0.7;
+@keyframes showContent {
+    to {
+        transform: translateY(0);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+.slider .list .item.active p:nth-child(1),
+.slider .list .item.active h2,
+.slider .list .item.active p:nth-child(3) {
+    transform: translateY(30px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent .5s .7s ease-in-out 1 forwards;
+}
+
+.slider .list .item.active h2 {
+    animation-delay: 1s;
+}
+
+.slider .list .item.active p:nth-child(3) {
+    animation-duration: 1.3s;
+}
+
+.arrows {
+    position: absolute;
+    top: 50%;
+    right: 50px;
+    transform: translateY(-50%);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.arrows button {
+    background: var(--gradient-warm);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 20px;
+    color: white;
+    transition: .3s;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.arrows button:hover {
+    transform: scale(1.1);
+}
+
+.thumbnail {
+    position: absolute;
+    bottom: 50px;
+    z-index: 11;
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    height: 120px;
+    padding: 0 50px;
+    box-sizing: border-box;
+    overflow: auto;
+    justify-content: center;
+}
+
+.thumbnail::-webkit-scrollbar {
+    width: 0;
+}
+
+.thumbnail .item {
+    width: 150px;
+    height: 100px;
+    filter: brightness(.5);
+    transition: .3s;
+    flex-shrink: 0;
+    cursor: pointer;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.thumbnail .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.thumbnail .item.active {
+    filter: brightness(1);
+    box-shadow: 0 0 0 3px var(--primary);
+}
+
+/* About Section */
+.about-section {
+    padding: 150px 20px 100px;
+    background: linear-gradient(135deg, #F5F7FA 0%, #E8ECF1 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.about-section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: #E8ECF1;
+    transform: skewY(-3deg);
+}
+
+.about-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-text h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.about-text h2 span {
+    background: var(--gradient-warm);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.about-text h3 {
+    font-size: 24px;
+    color: var(--text-light);
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.about-text p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text-light);
+    margin-bottom: 20px;
+}
+
+.about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.about-stat {
+    text-align: center;
+}
+
+.about-stat-number {
+    font-size: 36px;
+    font-weight: 800;
+    background: var(--gradient-warm);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+}
+
+.about-stat-label {
+    font-size: 14px;
+    color: var(--text-light);
+}
+
+.about-image {
+    position: relative;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+}
+
+.about-image::before,
+.about-image::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.about-image::before {
+    top: -20px;
+    right: -20px;
+    width: 100px;
+    height: 100px;
+    background: var(--gradient-warm);
+}
+
+.about-image::after {
+    bottom: -30px;
+    left: -30px;
+    width: 150px;
+    height: 150px;
+    background: var(--gradient-cool);
+}
+
+/* Team Section Enhanced */
+.team-section {
+    padding: 100px 20px;
+    background: linear-gradient(180deg, #E8ECF1 0%, #F5F7FA 100%);
+}
+
+.team-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.team-header h2 {
+    font-size: 48px;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.team-header p {
+    font-size: 20px;
+    color: var(--text-light);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.team-card {
+    background: white;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    cursor: pointer;
+    position: relative;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.team-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.team-card-image {
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+}
+
+.team-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.team-card:hover .team-card-image img {
+    transform: scale(1.1);
+}
+
+.team-card-overlay {
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    right: 0;
+    background: var(--gradient-hero);
+    padding: 20px;
+    transition: bottom 0.3s ease;
+}
+
+.team-card:hover .team-card-overlay {
+    bottom: 0;
+}
+
+.team-card-overlay p {
+    color: white;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.team-card-content {
+    padding: 25px;
+    text-align: center;
+}
+
+.team-card-content h3 {
+    font-size: 20px;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+}
+
+.team-card-content .role {
+    font-size: 14px;
+    background: var(--gradient-warm);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 600;
+}
+
+.team-card-social {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.team-card:hover .team-card-social {
+    opacity: 1;
+}
+
+.team-card-social a {
+    color: var(--text-light);
+    font-size: 16px;
+    transition: var(--transition);
+}
+
+.team-card-social a:hover {
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+/* Services Sections */
+.services-section {
+    padding: 100px 20px;
+    background: linear-gradient(180deg, #F5F7FA 0%, #E8ECF1 100%);
+}
+
+.service-layout {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.service-content h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.service-content h2 span {
+    background: var(--gradient-warm);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.service-content p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text-light);
+    margin-bottom: 30px;
+}
+
+.service-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.service-feature {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-dark);
+    font-size: 15px;
+}
+
+.service-feature i {
+    color: var(--primary);
+}
+
+.service-image {
+    position: relative;
+}
+
+.service-image img {
+    width: 100%;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+}
+
+.service-image::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 60%;
+    height: 60%;
+    background: var(--gradient-cool);
+    opacity: 0.1;
+    border-radius: var(--radius);
+    z-index: -1;
+}
+
+.service-layout.reverse {
+    direction: rtl;
+}
+
+.service-layout.reverse .service-content {
+    direction: ltr;
+}
+
+/* Reviews Section Enhanced */
+.reviews-section {
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #F5F7FA 0%, #E8ECF1 100%);
+    position: relative;
+}
+
+.reviews-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.reviews-header h2 {
+    font-size: 48px;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.reviews-header p {
+    font-size: 20px;
+    color: var(--text-light);
+}
+
+.reviews-stats {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+}
+
+.review-stat {
+    text-align: center;
+}
+
+.review-stat-number {
+    font-size: 48px;
+    font-weight: 800;
+    background: var(--gradient-warm);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+}
+
+.review-stat-label {
+    font-size: 16px;
+    color: var(--text-light);
+}
+
+/* Reviews Carousel */
+.reviews-carousel {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 60px;
+}
+
+.reviews-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.review-card {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0 15px;
+}
+
+.review-card-inner {
+    background: white;
+    padding: 40px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.review-card-inner::before {
+    content: '"';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 80px;
+    color: var(--primary);
+    opacity: 0.1;
+    font-family: serif;
+}
+
+.review-card-inner:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.review-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--gradient-warm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.review-meta h4 {
+    font-size: 20px;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+}
+
+.review-meta .review-date {
+    font-size: 14px;
+    color: var(--text-light);
+}
+
+.review-stars {
+    color: #FFA500;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.review-text {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+.reviews-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--gradient-warm);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.reviews-nav:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.reviews-nav.prev {
+    left: 0;
+}
+
+.reviews-nav.next {
+    right: 0;
+}
+
+.reviews-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.indicator.active {
+    background: var(--primary);
+    transform: scale(1.2);
+}
+
+.reviews-cta {
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* FAQ Section (New) */
+.faq-section {
+    padding: 100px 20px;
+    background: #F5F7FA;
+}
+
+.faq-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.faq-header h2 {
+    font-size: 42px;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: white;
+    border-radius: var(--radius);
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.faq-item:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.faq-question {
+    padding: 25px 30px;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.faq-question:hover {
+    background: rgba(212, 175, 55, 0.05);
+}
+
+.faq-question h3 {
+    font-size: 18px;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.faq-icon {
+    font-size: 20px;
+    color: var(--primary);
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+}
+
+.faq-answer-content {
+    padding: 0 30px 25px;
+    color: var(--text-light);
+    line-height: 1.8;
+}
+
+/* Color Palette Tool (New) */
+.color-tool-section {
+    padding: 100px 20px;
+    background: linear-gradient(180deg, #E8ECF1 0%, #F5F7FA 100%);
+}
+
+.color-tool-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.color-tool-header h2 {
+    font-size: 42px;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.color-tool-header p {
+    font-size: 18px;
+    color: var(--text-light);
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.color-tool-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: white;
+    border-radius: var(--radius);
+    padding: 40px;
+    box-shadow: var(--shadow-lg);
+}
+
+.color-preview {
+    height: 300px;
+    border-radius: var(--radius);
+    background: #E8E8E8;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+}
+
+.color-preview-label {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.color-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 15px;
+}
+
+.color-option {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.color-option:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.color-option.active::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.custom-color-option {
+    background: linear-gradient(135deg, #D4AF37 0%, #1B4F72 25%, #2E86AB 50%, #34495E 75%, #D4AF37 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.custom-color-picker {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.custom-color-option i {
+    color: white;
+    font-size: 24px;
+    pointer-events: none;
+}
+
+/* Certifications Section (New) */
+.certifications-section {
+    padding: 80px 20px;
+    background: #E8ECF1;
+}
+
+.certifications-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.certifications-header h2 {
+    font-size: 36px;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.certifications-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.certification-item {
+    background: white;
+    padding: 20px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.certification-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.certification-item img {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Footer Enhanced */
+footer {
+    background: var(--gradient-premium);
+    color: white;
+    padding: 60px 20px 20px;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: var(--dark);
+    transform: skewY(2deg);
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-company {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-logo {
+    height: 60px;
+    filter: brightness(0) invert(1);
+}
+
+.footer-company-name {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.footer-company-name .perspective {
+    background: var(--gradient-warm);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.footer-section h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: #94A3B8;
+    text-decoration: none;
+    transition: var(--transition);
+    font-size: 14px;
+}
+
+.footer-section ul li a:hover {
+    color: var(--primary);
+}
+
+.footer-section ul li i {
+    font-size: 12px;
+    margin-right: 8px;
+    color: var(--primary);
+}
+
+.business-info p {
+    margin-bottom: 12px;
+    color: #94A3B8;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.business-info i {
+    color: var(--primary);
+    margin-right: 10px;
+}
+
+.footer-social {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.footer-social a {
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: var(--transition);
+}
+
+.footer-social a:hover {
+    background: var(--gradient-warm);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    padding-top: 30px;
+    margin-top: 30px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    color: #64748B;
+    font-size: 14px;
+}
+
+/* Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.slide-in-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s ease;
+}
+
+.slide-in-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.slide-in-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.8s ease;
+}
+
+.slide-in-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.scale-in {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.8s ease;
+}
+
+.scale-in.visible {
+    opacity: 1;
+    transform: scale(1);
 }
 
 /* Responsive Design */
 @media (max-width: 1200px) {
-    .hero-section-content {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .contact-form-container {
-        max-width: 500px;
-    }
-    
-    .slider-wrapper {
-        flex-direction: column;
-    }
-    
-    .team-section-content {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .team-carousel-container {
-        margin: 0 auto;
+    .header-contact-info {
+        display: none;
     }
 }
 
 @media (max-width: 1024px) {
-    .header-content {
-        padding: 0 15px;
+    .hero-content-wrapper {
+        grid-template-columns: 1fr;
+        text-align: center;
     }
     
-    .button-container {
+    .contact-form-container {
+        margin: 0 auto;
+    }
+    
+    .about-content,
+    .service-layout {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .service-layout.reverse {
+        direction: ltr;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    
+    .process-timeline::before {
+        display: none;
+    }
+    
+    .process-step {
+        flex-direction: column !important;
+        margin-bottom: 40px;
+    }
+    
+    .process-content {
+        flex: 1 1 100%;
+        margin: 20px 0;
+    }
+    
+    .process-number {
+        margin: 0;
+        order: -1;
+    }
+    
+    .sticky-cta {
+        bottom: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-left {
+        gap: 20px;
+    }
+    
+    .company-name {
+        font-size: 20px;
+    }
+    
+    .nav-container {
         display: none;
     }
     
@@ -888,445 +2576,1545 @@ header > * {
         display: flex;
     }
     
-    .main-logo {
-        gap: 15px;
+    .hero-title {
+        font-size: 32px;
     }
     
-    .sub-header-content {
-        padding: 0 15px;
-        flex-wrap: wrap;
+    .hero-subtitle {
+        font-size: 24px;
     }
     
-    .sub-header-text {
-        font-size: 13px;
+    .cta-buttons {
+        flex-direction: column;
+        align-items: stretch;
     }
     
-    .sub-header-contact {
-        gap: 15px;
+    .services-list-grid {
+        grid-template-columns: 1fr;
     }
     
-    .sub-header-contact span {
-        font-size: 13px;
+    .team-grid,
+    .reviews-grid {
+        grid-template-columns: 1fr;
     }
     
-    .container {
-        height: 350px;
-    }
-    
-    .team-carousel-container {
-        width: 350px;
-        height: 450px;
-    }
-}
-
-/* Sub-header intermediate responsive */
-@media (max-width: 900px) and (min-width: 769px) {
-    .sub-header-content {
-        flex-wrap: wrap;
-        justify-content: center;
+    .footer-content {
+        grid-template-columns: 1fr;
         text-align: center;
-        gap: 15px;
     }
     
-    .sub-header-text {
-        width: 100%;
-        margin-right: 0;
-        margin-bottom: 5px;
+    .arrows {
+        right: 20px;
     }
     
-    .sub-header-contact {
-        margin-left: 0;
-        justify-content: center;
+    .thumbnail {
+        bottom: 20px;
+        padding: 0 20px;
+    }
+    
+    .reviews-stats {
+        gap: 30px;
+    }
+    
+    .about-stats {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .promise-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-features {
+        grid-template-columns: 1fr;
     }
 }
 
-@media (max-width: 768px) {
-    .header-content {
-        padding: 0 10px;
-    }
-    
-    .sub-header {
-        display: none;
-    }
-    
-    .company-name .perspective,
-    .company-name .painting {
-        font-size: 20px;
-    }
-    
-    .main-logo {
-        gap: 12px;
+@media (max-width: 480px) {
+    .company-name {
+        font-size: 18px;
     }
     
     .main-logo img {
         height: 40px;
     }
     
-    .quote-btn.header-cta {
-        display: none;
-    }
-    
-    .hero-section {
-        text-align: center;
-        padding: 40px 20px;
-    }
-    
-    .hero-content {
-        max-width: 100%;
-    }
-    
-    .company-name-hero {
-        white-space: normal;
-        border-right: none;
-        animation: fadeIn 1s ease forwards;
-    }
-    
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-    
     .contact-form-container {
-        margin-top: 40px;
+        padding: 25px 20px;
     }
     
-    .our-work-section,
-    .our-team-section,
-    .together-section {
-        padding: 60px 20px;
+    .section-title {
+        font-size: 32px;
     }
     
-    .container {
+    .slider {
+        height: 50vh;
+    }
+    
+    .slider .list .item .content h2 {
+        font-size: 28px;
+    }
+    
+    .showcase-carousel {
+        animation-duration: 20s;
+    }
+    
+    .showcase-item {
+        flex: 0 0 250px;
+        height: 150px;
+    }
+    
+    .before-after-slider {
         height: 300px;
     }
     
-    .team-carousel-container {
-        width: 300px;
-        height: 400px;
+    .hero-bg-animation {
+        display: none;
     }
     
-    .team-member {
-        width: 160px;
-        height: 200px;
+    .back-to-top {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
     }
     
-    .team-member.active {
-        width: 220px;
-        height: 280px;
+    .sticky-cta-btn {
+        padding: 12px 20px;
+        font-size: 14px;
     }
 }
 
-@media (max-width: 480px) {
-    header {
-        padding: 15px 0;
-    }
-    
-    .header-content {
-        padding: 0 10px;
-    }
-    
-    .main-logo {
-        gap: 10px;
-    }
-    
-    .hero-section {
-        min-height: calc(100vh - 60px);
-    }
-    
-    .mobile-menu-content {
-        width: 100%;
-        max-width: none;
-    }
-    
-    .container {
-        height: 250px;
-    }
-    
-    .content .name {
-        font-size: 24px;
-    }
-    
-    .content .des {
-        font-size: 14px;
-    }
-    
-    .call-now-btn {
-        font-size: 18px;
-        padding: 14px 28px;
+/* Print Styles */
+@media print {
+    header,
+    .sticky-cta,
+    .back-to-top,
+    .mobile-nav,
+    .overlay {
+        display: none !important;
     }
 }
     </style>
 </head>
+
 <body>
-    <div class="sub-header">
-        <div class="sub-header-content">
-            <span class="sub-header-text">📍 4536 Clairemont Dr. Suite 101, San Diego, CA 92117</span>
-            <div class="sub-header-contact">
-                <span><i class="fa-solid fa-phone"></i> (619) 818-4816</span>
-                <span><i class="fa-solid fa-envelope"></i> Hall.jon12@gmail.com</span>
-                <span class="social-media">
-                    <a href="https://www.instagram.com/perspectivepaintdesign/" target="_blank" rel="noopener">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-                </span>
-                <span class="social-media">
-                    <a href="https://www.linkedin.com/in/jon-hall-148702314/" target="_blank" rel="noopener">
-                        <i class="fa-brands fa-linkedin"></i>
-                    </a>
-                </span>
-            </div>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader">
+            <div class="loader-circle"></div>
+            <div class="loader-circle"></div>
+            <div class="loader-circle"></div>
         </div>
     </div>
-    
-    <header>
+
+    <!-- Sticky CTA Button -->
+    <div class="sticky-cta" id="stickyCTA">
+        <a href="#contact" class="sticky-cta-btn">
+            <i class="fa-solid fa-phone"></i> Get Free Estimate
+        </a>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fa-solid fa-chevron-up"></i>
+    </div>
+
+    <header id="header">
         <div class="header-content">
-            <div class="main-logo"> 
-                <img src="perspective-logo-old.png" alt="Perspective Painting Logo">
-                <div class="company-name">
-                    <span class="perspective">Perspective</span>
-                    <span class="painting">Painting</span>
-                </div>
-            </div>
-        
-            <div class="header-right">
-                <nav class="button-container">
-                    <div class="dropdown">
-                        <button class="nav-btn">About Us <i class="fa-solid fa-chevron-down"></i></button>
-                        <div class="dropdown-content">
-                            <a href="AboutUs.html">About Us</a>
-                            <a href="Gallery.html">Gallery</a>
-                            <a href="OurStory.html">Our Story</a>
-                            <a href="Mission.html">Mission & Values</a>
-                        </div>
-                    </div>
-                    
-                    <div class="dropdown">
-                        <button class="nav-btn">Let's Talk <i class="fa-solid fa-chevron-down"></i></button>
-                        <div class="dropdown-content">
-                            <a href="Let'sTalk.html">Get Quote</a>
-                            <a href="Services.html">Our Services</a>
-                            <a href="Consultation.html">Free Consultation</a>
-                        </div>
-                    </div>
-                    
-                    <div class="dropdown">
-                        <button class="nav-btn">Contact <i class="fa-solid fa-chevron-down"></i></button>
-                        <div class="dropdown-content">
-                            <a href="Contact.html">Contact Us</a>
-                            <a href="Location.html">Our Location</a>
-                            <a href="Hours.html">Business Hours</a>
-                        </div>
-                    </div>
-                </nav>
-                
-                <a href="Let'sTalk.html" class="quote-btn header-cta">Get a Quote →</a>
-                
-                <div class="mobile-menu-btn">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </div>
-    </header>
-    
-    <!-- Mobile Menu -->
-    <div class="mobile-menu-overlay">
-        <div class="mobile-menu-content">
-            <div class="mobile-menu-header">
-                <div class="main-logo">
+            <div class="header-left">
+                <a href="#" class="main-logo">
                     <img src="perspective-logo-old.png" alt="Perspective Painting Logo">
                     <div class="company-name">
-                        <span class="perspective">Perspective</span>
-                        <span class="painting">Painting</span>
+                        <span class="perspective">PERSPECTIVE</span>
+                        <span class="painting">PAINTING</span>
                     </div>
+                </a>
+                <div class="header-contact-info">
+                    <a href="tel:6198184816" class="header-contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>(619) 818-4816</span>
+                    </a>
+                    <a href="mailto:jon.hall11@gmail.com" class="header-contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>jon.hall11@gmail.com</span>
+                    </a>
                 </div>
-                <button class="mobile-close-btn">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
             </div>
             
-            <nav class="mobile-nav">
-                <div class="mobile-nav-section">
-                    <h3>About Us</h3>
-                    <a href="AboutUs.html">About Us</a>
-                    <a href="Gallery.html">Gallery</a>
-                    <a href="OurStory.html">Our Story</a>
-                    <a href="Mission.html">Mission & Values</a>
+            <nav class="nav-container">
+                <div class="nav-menu">
+                    <div class="nav-item">
+                        <a href="#about" class="nav-link">About</a>
+                        <div class="dropdown-menu">
+                            <a href="#team">Our Team</a>
+                            <a href="#process">Our Process</a>
+                            <a href="#promise">Our Promise</a>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#services" class="nav-link">Services</a>
+                        <div class="dropdown-menu">
+                            <a href="#residential">Residential</a>
+                            <a href="#commercial">Commercial</a>
+                            <a href="#specialty">Specialty Services</a>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#gallery" class="nav-link">Gallery</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#contact" class="nav-link">Contact</a>
+                        <div class="dropdown-menu">
+                            <a href="#inquiry">General Inquiry</a>
+                            <a href="#hiring">Join Our Team</a>
+                            <a href="#estimate">Free Estimate</a>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="mobile-nav-section">
-                    <h3>Let's Talk</h3>
-                    <a href="Let'sTalk.html">Get Quote</a>
-                    <a href="Services.html">Our Services</a>
-                    <a href="Consultation.html">Free Consultation</a>
-                </div>
-                
-                <div class="mobile-nav-section">
-                    <h3>Contact</h3>
-                    <a href="Contact.html">Contact Us</a>
-                    <a href="Location.html">Our Location</a>
-                    <a href="Hours.html">Business Hours</a>
-                </div>
-                
-                <div style="text-align: center; margin-top: 30px;">
-                    <a href="Let'sTalk.html" class="quote-btn">Get a Quote →</a>
-                </div>
+                <a href="#contact" class="quote-btn">
+                    <i class="fa-solid fa-paintbrush"></i>
+                    FREE ESTIMATE
+                </a>
             </nav>
+            
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-content">
+            <div class="mobile-nav-close">
+                <button class="close-btn" onclick="toggleMobileMenu()" aria-label="Close mobile menu">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </div>
+            <div class="mobile-nav-menu">
+                <div class="mobile-nav-item">
+                    <a href="#about" class="mobile-nav-link" onclick="toggleDropdown(this)">ABOUT</a>
+                    <div class="mobile-dropdown">
+                        <a href="#team" onclick="toggleMobileMenu()">Our Team</a>
+                        <a href="#process" onclick="toggleMobileMenu()">Our Process</a>
+                        <a href="#promise" onclick="toggleMobileMenu()">Our Promise</a>
+                    </div>
+                </div>
+                <div class="mobile-nav-item">
+                    <a href="#services" class="mobile-nav-link" onclick="toggleDropdown(this)">SERVICES</a>
+                    <div class="mobile-dropdown">
+                        <a href="#residential" onclick="toggleMobileMenu()">Residential</a>
+                        <a href="#commercial" onclick="toggleMobileMenu()">Commercial</a>
+                        <a href="#specialty" onclick="toggleMobileMenu()">Specialty Services</a>
+                    </div>
+                </div>
+                <div class="mobile-nav-item">
+                    <a href="#gallery" class="mobile-nav-link" onclick="toggleMobileMenu()">GALLERY</a>
+                </div>
+                <div class="mobile-nav-item">
+                    <a href="#contact" class="mobile-nav-link" onclick="toggleDropdown(this)">CONTACT</a>
+                    <div class="mobile-dropdown">
+                        <a href="#inquiry" onclick="toggleMobileMenu()">General Inquiry</a>
+                        <a href="#hiring" onclick="toggleMobileMenu()">Join Our Team</a>
+                        <a href="#estimate" onclick="toggleMobileMenu()">Free Estimate</a>
+                    </div>
+                </div>
+                <div class="mobile-nav-item">
+                    <a href="#contact" class="btn btn-primary" onclick="toggleMobileMenu()">FREE ESTIMATE</a>
+                </div>
+            </div>
         </div>
     </div>
+    <div class="overlay" id="overlay" onclick="toggleMobileMenu()"></div>
 
     <main>
         <section class="hero-section">
-            <div class="hero-backgrounds">
-                <div class="hero-bg"></div>
-                <div class="hero-bg"></div>
-                <div class="hero-bg"></div>
-            </div>
             <div class="hero-overlay"></div>
-            <div class="hero-section-content">
-                <div class="hero-content">
-                    <h2 class="company-name-hero">Fresh Color, Clear Vision.</h2>
-                    <h3 class="company-descriptor">Professional & Family Oriented Painting Services</h3>
-                    <h1 class="main-quote">Change Your Perspective</h1>
-                    <a href="tel:6198184816" class="call-now-btn">
-                        <i class="fa-solid fa-phone"></i> Call Now
-                    </a>
+            <div class="hero-bg-animation">
+                <div class="shape"></div>
+                <div class="shape"></div>
+                <div class="shape"></div>
+            </div>
+            <div class="hero-content-wrapper">
+                <div class="hero-main">
+                    <h1 class="hero-title">Your Vision, Your Stage</h1>
+                    <h2 class="hero-subtitle">Fresh Color, Clear Vision.<br>Change Your Perspective.</h2>
+                    <p class="company-descriptor">Comprehensive Painting Solutions for Homes & Businesses in San Diego, CA</p>
+                    
+                    <div class="cta-buttons">
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fa-solid fa-paintbrush"></i> GET FREE ESTIMATE
+                        </a>
+                        <a href="tel:6198184816" class="btn btn-secondary">
+                            <i class="fa-solid fa-phone"></i> (619) 818-4816
+                        </a>
+                    </div>
                 </div>
                 
                 <div class="contact-form-container">
-                    <h3>Get Your Free Quote</h3>
-                    <form id="contactForm">
+                    <div class="form-progress">
+                        <div class="form-progress-bar" id="formProgress"></div>
+                    </div>
+                    <div class="form-header">
+                        <h3>Request Free Estimate</h3>
+                        <p>No obligation consultation</p>
+                    </div>
+                    <form class="contact-form" id="contactForm">
                         <div class="form-group">
-                            <label for="fullName">Full Name</label>
-                            <input type="text" id="fullName" name="fullName" required>
+                            <input type="text" placeholder="Full Name" required name="name">
                         </div>
                         <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" required>
+                            <input type="email" placeholder="Email Address" required name="email">
                         </div>
                         <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="tel" placeholder="Phone Number" required name="phone">
                         </div>
                         <div class="form-group">
-                            <label for="comments">Comments</label>
-                            <textarea id="comments" name="comments" placeholder="Tell us about your project..."></textarea>
+                            <select required name="service">
+                                <option value="">Select Service</option>
+                                <option value="residential-interior">Interior Painting</option>
+                                <option value="residential-exterior">Exterior Painting</option>
+                                <option value="commercial">Commercial</option>
+                                <option value="cabinet">Cabinet Refinishing</option>
+                                <option value="other">Other</option>
+                            </select>
                         </div>
-                        <button type="submit" class="submit-btn">Send Message</button>
+                        <button type="submit" class="form-submit">Get My Free Estimate</button>
                     </form>
                 </div>
             </div>
-        </section>
-        
-        <section class="our-work-section">
-            <div class="slider-wrapper">
-                <div style="flex: 1;">
-                    <h2 class="section-title">Our Work</h2>
-                </div>
-                
-                <div class="container" id="workCarousel">
-                    <div class="slide">
-                        <div class="item active" style="background-image: url(house_1.jpg); --offset: 0;">
-                            <div class="content">
-                                <div class="name">House 1</div>
-                                <div class="des">Beautiful residential painting project showcasing our attention to detail.</div>
-                                <button>See More</button>
-                            </div>
-                        </div>
-                        <div class="item" style="background-image: url(house_2.jpg); --offset: 1;">
-                            <div class="content">
-                                <div class="name">House 2</div>
-                                <div class="des">Exterior transformation with modern color schemes.</div>
-                                <button>See More</button>
-                            </div>
-                        </div>
-                        <div class="item" style="background-image: url(house_3.jpg); --offset: 2;">
-                            <div class="content">
-                                <div class="name">House 3</div>
-                                <div class="des">Interior painting excellence with custom color matching.</div>
-                                <button>See More</button>
-                            </div>
-                        </div>
-                        <div class="item" style="background-image: url(house_4.jpg); --offset: 3;">
-                            <div class="content">
-                                <div class="name">House 4</div>
-                                <div class="des">Complete home renovation including painting and trim work.</div>
-                                <button>See More</button>
-                            </div>
-                        </div>
-                        <div class="item" style="background-image: url(house_5.jpg); --offset: 4;">
-                            <div class="content">
-                                <div class="name">House 5</div>
-                                <div class="des">Commercial painting project demonstrating our versatility.</div>
-                                <button>See More</button>
-                            </div>
-                        </div>
-                        <div class="item" style="background-image: url(house_6.jpg); --offset: 5;">
-                            <div class="content">
-                                <div class="name">House 6</div>
-                                <div class="des">Premium residential painting with exceptional attention to detail.</div>
-                                <button>See More</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="button">
-                        <button class="prev"><i class="fa-solid fa-arrow-left"></i></button>
-                        <button class="next"><i class="fa-solid fa-arrow-right"></i></button>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="our-team-section">
-            <h2 class="section-title">Our Team</h2>
             
-            <div class="team-section-content">
-                <div class="team-details" id="teamDetails">
-                    <h2>Select a Team Member</h2>
-                    <p class="role">Click on a photo to learn more</p>
-                    <p class="bio">Our experienced team of skilled painters is dedicated to delivering exceptional results on every project.</p>
+            <div class="wave-transition">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+                </svg>
+            </div>
+        </section>
+        
+        <!-- Promise Section -->
+        <section id="promise" class="promise-section fade-in">
+            <div class="container">
+                <div class="promise-header">
+                    <h2>The Perspective Promise™</h2>
+                    <p>Our commitment to excellence in every project</p>
+                </div>
+                <div class="promise-grid">
+                    <div class="promise-card">
+                        <div class="promise-icon">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <h3>On-Time Guarantee</h3>
+                        <p>We start and finish on time, respecting your schedule and daily routine.</p>
+                    </div>
+                    <div class="promise-card">
+                        <div class="promise-icon">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3>Quality Assurance</h3>
+                        <p>Premium materials and expert techniques for results that last for years.</p>
+                    </div>
+                    <div class="promise-card">
+                        <div class="promise-icon">
+                            <i class="fa-solid fa-broom"></i>
+                        </div>
+                        <h3>Clean Workspace</h3>
+                        <p>We maintain a neat, organized environment throughout your project.</p>
+                    </div>
+                    <div class="promise-card">
+                        <div class="promise-icon">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+                        <h3>Satisfaction Guaranteed</h3>
+                        <p>Not completely satisfied? We'll make it right - that's our promise.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="services-list-section fade-in">
+            <div class="container">
+                <div class="services-list-header">
+                    <h3>Our San Diego Painting Services</h3>
+                    <p>Professional painting solutions tailored to your needs</p>
+                </div>
+                <div class="services-list-grid">
+                    <div class="service-list-item">
+                        <i class="fa-solid fa-home"></i>
+                        <h4>Interior Painting</h4>
+                        <p>Transform your living spaces with professional interior painting</p>
+                    </div>
+                    <div class="service-list-item">
+                        <i class="fa-solid fa-paint-roller"></i>
+                        <h4>Exterior Painting</h4>
+                        <p>Protect and beautify your home's exterior with premium paints</p>
+                    </div>
+                    <div class="service-list-item">
+                        <i class="fa-solid fa-building"></i>
+                        <h4>Commercial Projects</h4>
+                        <p>Professional solutions for businesses and commercial properties</p>
+                    </div>
+                    <div class="service-list-item">
+                        <i class="fa-solid fa-kitchen-set"></i>
+                        <h4>Cabinet Refinishing</h4>
+                        <p>Give your kitchen a fresh look without replacement costs</p>
+                    </div>
+                    <div class="service-list-item">
+                        <i class="fa-solid fa-water"></i>
+                        <h4>Pressure Washing</h4>
+                        <p>Professional cleaning to prepare surfaces for painting</p>
+                    </div>
+                    <div class="service-list-item">
+                        <i class="fa-solid fa-house-chimney"></i>
+                        <h4>HOA & Condo Painting</h4>
+                        <p>Specialized services for multi-unit properties and communities</p>
+                    </div>
+                    <div class="service-list-item">
+                        <i class="fa-solid fa-spray-can"></i>
+                        <h4>Deck & Fence Staining</h4>
+                        <p>Protect and enhance your outdoor wood surfaces</p>
+                    </div>
+                    <div class="service-list-item">
+                        <i class="fa-solid fa-palette"></i>
+                        <h4>Color Consultation</h4>
+                        <p>Expert guidance to choose the perfect colors for your space</p>
+                    </div>
+                    <div class="service-list-item">
+                        <i class="fa-solid fa-brush"></i>
+                        <h4>Drywall Repair</h4>
+                        <p>Complete surface preparation including repairs and texturing</p>
+                    </div>
+                    <div class="service-list-item">
+                        <i class="fa-solid fa-store"></i>
+                        <h4>Retail & Restaurant</h4>
+                        <p>Quick turnaround painting for commercial spaces</p>
+                    </div>
+                    <div class="service-list-item">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <h4>Specialty Coatings</h4>
+                        <p>Epoxy floors, anti-graffiti, and protective finishes</p>
+                    </div>
+                    <div class="service-list-item">
+                        <i class="fa-solid fa-award"></i>
+                        <h4>Quality Guarantee</h4>
+                        <p>5-10 year warranty with 100% satisfaction guaranteed</p>
+                    </div>
                 </div>
                 
-                <div class="team-carousel-container">
-                    <div class="team-carousel" id="teamCarousel">
-                        <div class="team-member active" data-name="John Smith" data-role="Lead Painter" data-bio="With over 15 years of experience, John leads our team with expertise in both residential and commercial painting projects." style="--offset: 0;">
-                            <img src="temp_1 (1).JPG" alt="John Smith">
+                <!-- Work Showcase Carousel -->
+                <div class="work-showcase">
+                    <h4 class="showcase-title">Recent Projects</h4>
+                    <div class="showcase-carousel">
+                        <div class="showcase-item">
+                            <img src="showcase-1.jpg" alt="Living Room">
+                            <div class="showcase-overlay">
+                                <h5>Modern Living Room</h5>
+                                <p>Interior Transformation</p>
+                            </div>
                         </div>
-                        <div class="team-member" data-name="Sarah Johnson" data-role="Color Specialist" data-bio="Sarah's eye for color and design helps our clients choose the perfect palette for their spaces." style="--offset: 1;">
-                            <img src="temp_1 (2).JPG" alt="Sarah Johnson">
+                        <div class="showcase-item">
+                            <img src="showcase-2.jpg" alt="Exterior Home">
+                            <div class="showcase-overlay">
+                                <h5>Coastal Home</h5>
+                                <p>Exterior Renovation</p>
+                            </div>
                         </div>
-                        <div class="team-member" data-name="Mike Davis" data-role="Senior Painter" data-bio="Mike specializes in detailed trim work and has perfected techniques for flawless finishes." style="--offset: 2;">
-                            <img src="temp_1 (3).JPG" alt="Mike Davis">
+                        <div class="showcase-item">
+                            <img src="showcase-3.jpg" alt="Kitchen Cabinets">
+                            <div class="showcase-overlay">
+                                <h5>Kitchen Refresh</h5>
+                                <p>Cabinet Refinishing</p>
+                            </div>
                         </div>
-                        <div class="team-member" data-name="Emily Chen" data-role="Project Manager" data-bio="Emily ensures every project runs smoothly from start to finish, keeping clients informed every step of the way." style="--offset: 3;">
-                            <img src="temp_1 (4).JPG" alt="Emily Chen">
+                        <div class="showcase-item">
+                            <img src="showcase-4.jpg" alt="Office Space">
+                            <div class="showcase-overlay">
+                                <h5>Modern Office</h5>
+                                <p>Commercial Project</p>
+                            </div>
                         </div>
-                        <div class="team-member" data-name="Robert Martinez" data-role="Exterior Specialist" data-bio="Robert's expertise in exterior painting helps protect and beautify homes throughout San Diego." style="--offset: 4;">
-                            <img src="temp_1 (5).JPG" alt="Robert Martinez">
+                        <div class="showcase-item">
+                            <img src="showcase-5.jpg" alt="Bedroom">
+                            <div class="showcase-overlay">
+                                <h5>Master Bedroom</h5>
+                                <p>Accent Wall Design</p>
+                            </div>
                         </div>
-                        <div class="team-member" data-name="Lisa Thompson" data-role="Interior Designer" data-bio="Lisa works with clients to create cohesive interior designs that transform living spaces." style="--offset: 5;">
-                            <img src="temp_1 (6).JPG" alt="Lisa Thompson">
+                        <div class="showcase-item">
+                            <img src="showcase-6.jpg" alt="Restaurant">
+                            <div class="showcase-overlay">
+                                <h5>Restaurant Interior</h5>
+                                <p>Commercial Painting</p>
+                            </div>
+                        </div>
+                        <div class="showcase-item">
+                            <img src="showcase-7.jpg" alt="Beach House">
+                            <div class="showcase-overlay">
+                                <h5>Beach House</h5>
+                                <p>Complete Makeover</p>
+                            </div>
+                        </div>
+                        <!-- Duplicate for continuous scroll -->
+                        <div class="showcase-item">
+                            <img src="showcase-1.jpg" alt="Living Room">
+                            <div class="showcase-overlay">
+                                <h5>Modern Living Room</h5>
+                                <p>Interior Transformation</p>
+                            </div>
+                        </div>
+                        <div class="showcase-item">
+                            <img src="showcase-2.jpg" alt="Exterior Home">
+                            <div class="showcase-overlay">
+                                <h5>Coastal Home</h5>
+                                <p>Exterior Renovation</p>
+                            </div>
+                        </div>
+                        <div class="showcase-item">
+                            <img src="showcase-3.jpg" alt="Kitchen Cabinets">
+                            <div class="showcase-overlay">
+                                <h5>Kitchen Refresh</h5>
+                                <p>Cabinet Refinishing</p>
+                            </div>
+                        </div>
+                        <div class="showcase-item">
+                            <img src="showcase-4.jpg" alt="Office Space">
+                            <div class="showcase-overlay">
+                                <h5>Modern Office</h5>
+                                <p>Commercial Project</p>
+                            </div>
+                        </div>
+                        <div class="showcase-item">
+                            <img src="showcase-5.jpg" alt="Bedroom">
+                            <div class="showcase-overlay">
+                                <h5>Master Bedroom</h5>
+                                <p>Accent Wall Design</p>
+                            </div>
+                        </div>
+                        <div class="showcase-item">
+                            <img src="showcase-6.jpg" alt="Restaurant">
+                            <div class="showcase-overlay">
+                                <h5>Restaurant Interior</h5>
+                                <p>Commercial Painting</p>
+                            </div>
+                        </div>
+                        <div class="showcase-item">
+                            <img src="showcase-7.jpg" alt="Beach House">
+                            <div class="showcase-overlay">
+                                <h5>Beach House</h5>
+                                <p>Complete Makeover</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
         
-        <section class="together-section">
-            <div style="text-align: center; width: 100%;">
-                <h2 class="section-title">Let's Work Together</h2>
-                <p style="color: white; font-size: 20px; margin-bottom: 30px;">Ready to transform your space? Get in touch today!</p>
-                <a href="Let'sTalk.html" class="quote-btn" style="font-size: 20px; padding: 16px 32px;">Start Your Project</a>
+        <!-- Process Timeline -->
+        <section id="process" class="process-section fade-in">
+            <div class="container">
+                <div class="process-header">
+                    <h2>Our Proven Process</h2>
+                </div>
+                <div class="process-timeline">
+                    <div class="process-step">
+                        <div class="process-content slide-in-left">
+                            <h3>Initial Consultation</h3>
+                            <p>Free on-site evaluation to understand your vision and provide accurate pricing</p>
+                        </div>
+                        <div class="process-number">1</div>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-content slide-in-right">
+                            <h3>Color & Design Planning</h3>
+                            <p>Work with our color experts to choose the perfect palette for your space</p>
+                        </div>
+                        <div class="process-number">2</div>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-content slide-in-left">
+                            <h3>Surface Preparation</h3>
+                            <p>Thorough prep work including repairs, priming, and protection of your property</p>
+                        </div>
+                        <div class="process-number">3</div>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-content slide-in-right">
+                            <h3>Professional Painting</h3>
+                            <p>Expert application using premium materials for flawless, lasting results</p>
+                        </div>
+                        <div class="process-number">4</div>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-content slide-in-left">
+                            <h3>Final Inspection</h3>
+                            <p>Detailed walkthrough to ensure 100% satisfaction with every detail</p>
+                        </div>
+                        <div class="process-number">5</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="gallery" class="gallery-section fade-in">
+            <div class="gallery-wrapper container">
+                <div class="gallery-header">
+                    <h2>Our Work Speaks For Itself</h2>
+                    <p>Browse through our portfolio of completed projects</p>
+                </div>
+                
+                <!-- Before/After Slider -->
+                <div class="before-after-container">
+                    <div class="before-after-slider" id="beforeAfterSlider">
+                        <img src="before.jpg" alt="Before" class="before-image">
+                        <div class="after-container" id="afterContainer">
+                            <img src="after.jpg" alt="After" class="after-image">
+                        </div>
+                        <div class="slider-handle" id="sliderHandle"></div>
+                        <span class="before-label">BEFORE</span>
+                        <span class="after-label">AFTER</span>
+                    </div>
+                </div>
+                
+                <div class="slider">
+                    <div class="list">
+                        <div class="item active">
+                            <img src="gallery-1.jpg" alt="Interior painting project">
+                            <div class="content">
+                                <p>Interior</p>
+                                <h2>Modern Living</h2>
+                                <p>
+                                    Transforming spaces with premium paints and expert techniques
+                                    for stunning, lasting results.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="gallery-2.jpg" alt="Exterior painting project">
+                            <div class="content">
+                                <p>Exterior</p>
+                                <h2>Curb Appeal</h2>
+                                <p>
+                                    Weather-resistant exterior painting that protects and beautifies
+                                    your home for years to come.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="gallery-3.jpg" alt="Kitchen cabinet painting">
+                            <div class="content">
+                                <p>Kitchen</p>
+                                <h2>Cabinet Magic</h2>
+                                <p>
+                                    Professional cabinet refinishing that saves money while
+                                    delivering stunning transformations.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="gallery-4.jpg" alt="Commercial painting project">
+                            <div class="content">
+                                <p>Commercial</p>
+                                <h2>Business Ready</h2>
+                                <p>
+                                    Efficient commercial painting services that minimize disruption
+                                    while maximizing impact.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="gallery-5.jpg" alt="Special finish painting">
+                            <div class="content">
+                                <p>Special</p>
+                                <h2>Unique Finishes</h2>
+                                <p>
+                                    From accent walls to custom textures, we bring your
+                                    creative vision to life.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="arrows">
+                        <button id="prev" aria-label="Previous image"><i class="fa-solid fa-chevron-up"></i></button>
+                        <button id="next" aria-label="Next image"><i class="fa-solid fa-chevron-down"></i></button>
+                    </div>
+                    
+                    <div class="thumbnail">
+                        <div class="item active">
+                            <img src="gallery-1.jpg" alt="Thumbnail 1">
+                        </div>
+                        <div class="item">
+                            <img src="gallery-2.jpg" alt="Thumbnail 2">
+                        </div>
+                        <div class="item">
+                            <img src="gallery-3.jpg" alt="Thumbnail 3">
+                        </div>
+                        <div class="item">
+                            <img src="gallery-4.jpg" alt="Thumbnail 4">
+                        </div>
+                        <div class="item">
+                            <img src="gallery-5.jpg" alt="Thumbnail 5">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="about" class="about-section fade-in">
+            <div class="about-content">
+                <div class="about-text slide-in-left">
+                    <h2>WE'RE NOT JUST A<br><span>PAINTING COMPANY...</span><br>WE'RE THE PAINTING<br>COMPANY.</h2>
+                    <h3>Transforming San Diego Homes and Businesses with Precision, Care, and Exceptional Service.</h3>
+                    <p>At Perspective Painting, we know your home or business isn't just a space—it's part of your story. Whether you're refreshing your home's curb appeal or creating a welcoming atmosphere for your customers, choosing the right painting company can feel overwhelming.</p>
+                    <p>You deserve a team that not only delivers flawless results but also treats your property with the care and respect it deserves. That's why we're not just another painting company. Locally owned and operated, we're THE painting company that's been trusted to bring beauty and value to San Diego's most exceptional spaces since 2018.</p>
+                    
+                    <div class="about-stats">
+                        <div class="about-stat">
+                            <span class="about-stat-number counter" data-target="500">0</span>
+                            <span class="about-stat-label">Projects Completed</span>
+                        </div>
+                        <div class="about-stat">
+                            <span class="about-stat-number counter" data-target="6">0</span>
+                            <span class="about-stat-label">Years Experience</span>
+                        </div>
+                        <div class="about-stat">
+                            <span class="about-stat-number counter" data-target="100">0</span>
+                            <span class="about-stat-label">% Satisfaction</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="btn btn-primary">GET FREE ESTIMATE</a>
+                </div>
+                <div class="about-image slide-in-right">
+                    <img src="team-photo.jpg" alt="Perspective Painting Team">
+                </div>
+            </div>
+        </section>
+        
+        <section id="team" class="team-section fade-in">
+            <div class="team-wrapper container">
+                <div class="team-header">
+                    <h2>Meet Our Expert Team</h2>
+                    <p>Dedicated Professionals Committed to Excellence</p>
+                </div>
+                
+                <div class="team-grid">
+                    <div class="team-card scale-in">
+                        <div class="team-card-image">
+                            <img src="team-member-1.jpg" alt="John Hall">
+                            <div class="team-card-overlay">
+                                <p>With over 20 years of experience in the painting industry, John leads our team with a commitment to quality and customer satisfaction.</p>
+                            </div>
+                        </div>
+                        <div class="team-card-content">
+                            <h3>John Hall</h3>
+                            <p class="role">Owner & Lead Painter</p>
+                            <div class="team-card-social">
+                                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-card scale-in">
+                        <div class="team-card-image">
+                            <img src="team-member-2.jpg" alt="Sarah Johnson">
+                            <div class="team-card-overlay">
+                                <p>Sarah's eye for color and design helps our clients choose the perfect palette for their spaces, ensuring stunning results every time.</p>
+                            </div>
+                        </div>
+                        <div class="team-card-content">
+                            <h3>Sarah Johnson</h3>
+                            <p class="role">Color Specialist</p>
+                            <div class="team-card-social">
+                                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-card scale-in">
+                        <div class="team-card-image">
+                            <img src="team-member-3.jpg" alt="Mike Rodriguez">
+                            <div class="team-card-overlay">
+                                <p>Mike specializes in detailed trim work and has perfected techniques for flawless finishes on even the most challenging projects.</p>
+                            </div>
+                        </div>
+                        <div class="team-card-content">
+                            <h3>Mike Rodriguez</h3>
+                            <p class="role">Senior Painter</p>
+                            <div class="team-card-social">
+                                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-card scale-in">
+                        <div class="team-card-image">
+                            <img src="team-member-4.jpg" alt="Emily Chen">
+                            <div class="team-card-overlay">
+                                <p>Emily ensures every project runs smoothly from start to finish, keeping clients informed and happy throughout the process.</p>
+                            </div>
+                        </div>
+                        <div class="team-card-content">
+                            <h3>Emily Chen</h3>
+                            <p class="role">Project Manager</p>
+                            <div class="team-card-social">
+                                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-card scale-in">
+                        <div class="team-card-image">
+                            <img src="team-member-5.jpg" alt="Carlos Martinez">
+                            <div class="team-card-overlay">
+                                <p>Carlos brings expertise in exterior painting and surface preparation, ensuring long-lasting results that withstand the elements.</p>
+                            </div>
+                        </div>
+                        <div class="team-card-content">
+                            <h3>Carlos Martinez</h3>
+                            <p class="role">Exterior Specialist</p>
+                            <div class="team-card-social">
+                                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-card scale-in">
+                        <div class="team-card-image">
+                            <img src="team-member-6.jpg" alt="Lisa Thompson">
+                            <div class="team-card-overlay">
+                                <p>Lisa coordinates our commercial projects, working closely with business owners to minimize disruption while maximizing results.</p>
+                            </div>
+                        </div>
+                        <div class="team-card-content">
+                            <h3>Lisa Thompson</h3>
+                            <p class="role">Commercial Coordinator</p>
+                            <div class="team-card-social">
+                                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="services" class="services-section fade-in">
+            <div class="service-layout slide-in-left">
+                <div class="service-content">
+                    <h2><span>COMMERCIAL PAINTING</span><br>SERVICES</h2>
+                    <p>A well-painted space isn't just attractive—it's a statement about your business. At Perspective Painting, we help commercial properties stand out with tailored painting solutions that balance aesthetics with durability.</p>
+                    <p>From modernizing retail stores and restaurants to transforming large-scale apartment complexes, we have the expertise to handle projects of any size. Our team works efficiently to meet deadlines, minimize disruptions, and deliver a finished product that aligns with your brand's vision.</p>
+                    
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <i class="fa-solid fa-check-circle"></i>
+                            <span>HOA & Condo Painting</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fa-solid fa-check-circle"></i>
+                            <span>Restaurant & Retail</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fa-solid fa-check-circle"></i>
+                            <span>Office Buildings</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fa-solid fa-check-circle"></i>
+                            <span>Warehouse & Industrial</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="btn btn-primary">LEARN MORE <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="service-image">
+                    <img src="commercial-service.jpg" alt="Commercial Painting Services">
+                </div>
+            </div>
+            
+            <div class="service-layout reverse slide-in-right">
+                <div class="service-image">
+                    <img src="residential-service.jpg" alt="Residential Painting Services">
+                </div>
+                <div class="service-content">
+                    <h2><span>RESIDENTIAL PAINTING</span><br>SERVICES</h2>
+                    <p>Your home is more than just a place to live—it's where memories are made. At Perspective Painting, we specialize in transforming houses into stunning spaces that reflect your personality and style.</p>
+                    <p>From interior walls that inspire to exteriors that enhance curb appeal, our expert team uses premium materials and meticulous attention to detail to deliver perfection on every project.</p>
+                    
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <i class="fa-solid fa-check-circle"></i>
+                            <span>Interior Painting</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fa-solid fa-check-circle"></i>
+                            <span>Exterior Painting</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fa-solid fa-check-circle"></i>
+                            <span>Cabinet Refinishing</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fa-solid fa-check-circle"></i>
+                            <span>Deck & Fence Staining</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="btn btn-primary">LEARN MORE <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Color Palette Tool -->
+        <section class="color-tool-section fade-in">
+            <div class="container">
+                <div class="color-tool-header">
+                    <h2>Visualize Your Colors</h2>
+                    <p>Your perspective matters</p>
+                </div>
+                <div class="color-tool-container">
+                    <div class="color-preview" id="colorPreview">
+                        <span class="color-preview-label">Click a color below to preview</span>
+                    </div>
+                    <div class="color-options" id="colorOptions">
+                        <div class="color-option" style="background: #E8E8E8" data-color="#E8E8E8"></div>
+                        <div class="color-option" style="background: #F5F5DC" data-color="#F5F5DC"></div>
+                        <div class="color-option" style="background: #D3D3D3" data-color="#D3D3D3"></div>
+                        <div class="color-option" style="background: #778899" data-color="#778899"></div>
+                        <div class="color-option" style="background: #708090" data-color="#708090"></div>
+                        <div class="color-option" style="background: #F0E68C" data-color="#F0E68C"></div>
+                        <div class="color-option" style="background: #FFE4B5" data-color="#FFE4B5"></div>
+                        <div class="color-option" style="background: #F4A460" data-color="#F4A460"></div>
+                        <div class="color-option" style="background: #D2691E" data-color="#D2691E"></div>
+                        <div class="color-option" style="background: #BC8F8F" data-color="#BC8F8F"></div>
+                        <div class="color-option" style="background: #B0C4DE" data-color="#B0C4DE"></div>
+                        <div class="color-option" style="background: #87CEEB" data-color="#87CEEB"></div>
+                        <div class="color-option" style="background: #4682B4" data-color="#4682B4"></div>
+                        <div class="color-option" style="background: #5F9EA0" data-color="#5F9EA0"></div>
+                        <div class="color-option" style="background: #20B2AA" data-color="#20B2AA"></div>
+                        <div class="color-option" style="background: #8FBC8F" data-color="#8FBC8F"></div>
+                        <div class="color-option" style="background: #90EE90" data-color="#90EE90"></div>
+                        <div class="color-option" style="background: #98FB98" data-color="#98FB98"></div>
+                        <div class="color-option" style="background: #FFB6C1" data-color="#FFB6C1"></div>
+                        <div class="color-option" style="background: #FFA07A" data-color="#FFA07A"></div>
+                        <div class="color-option custom-color-option">
+                            <input type="color" id="customColorPicker" class="custom-color-picker">
+                            <i class="fa-solid fa-palette"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="reviews-section fade-in">
+            <div class="reviews-wrapper container">
+                <div class="reviews-header">
+                    <h2>What Our Clients Say</h2>
+                    <p>Real reviews from real customers who trust us with their homes and businesses</p>
+                </div>
+                
+                <div class="reviews-stats">
+                    <div class="review-stat">
+                        <span class="review-stat-number counter" data-target="500">0</span>+
+                        <span class="review-stat-label">Happy Customers</span>
+                    </div>
+                    <div class="review-stat">
+                        <span class="review-stat-number">4.8</span>
+                        <span class="review-stat-label">Average Rating</span>
+                    </div>
+                    <div class="review-stat">
+                        <span class="review-stat-number counter" data-target="100">0</span>%
+                        <span class="review-stat-label">Satisfaction Rate</span>
+                    </div>
+                </div>
+                
+                <div class="reviews-carousel">
+                    <div class="reviews-track" id="reviewsTrack">
+                        <div class="review-card">
+                            <div class="review-card-inner">
+                                <div class="review-header">
+                                    <div class="review-avatar">JD</div>
+                                    <div class="review-meta">
+                                        <h4>John Davidson</h4>
+                                        <div class="review-date">2 weeks ago</div>
+                                    </div>
+                                </div>
+                                <div class="review-stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <div class="review-text">
+                                    "Absolutely outstanding service from start to finish! The team was professional, punctual, and the quality of work exceeded our expectations. Our home looks brand new!"
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="review-card">
+                            <div class="review-card-inner">
+                                <div class="review-header">
+                                    <div class="review-avatar">SM</div>
+                                    <div class="review-meta">
+                                        <h4>Sarah Miller</h4>
+                                        <div class="review-date">1 month ago</div>
+                                    </div>
+                                </div>
+                                <div class="review-stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <div class="review-text">
+                                    "We hired Perspective for our office renovation and couldn't be happier. They worked around our schedule, kept everything clean, and the results are stunning. Highly recommend!"
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="review-card">
+                            <div class="review-card-inner">
+                                <div class="review-header">
+                                    <div class="review-avatar">RG</div>
+                                    <div class="review-meta">
+                                        <h4>Robert Garcia</h4>
+                                        <div class="review-date">2 months ago</div>
+                                    </div>
+                                </div>
+                                <div class="review-stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <div class="review-text">
+                                    "Best painting company in San Diego! Fair pricing, excellent communication, and they went above and beyond to ensure we were satisfied. Our kitchen cabinets look amazing!"
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="reviews-nav prev" id="reviewPrev" aria-label="Previous review">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button class="reviews-nav next" id="reviewNext" aria-label="Next review">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <div class="reviews-indicators" id="reviewIndicators">
+                    <span class="indicator active" data-index="0"></span>
+                    <span class="indicator" data-index="1"></span>
+                    <span class="indicator" data-index="2"></span>
+                </div>
+                
+                <div class="reviews-cta">
+                    <a href="#" class="btn btn-primary">See All Reviews</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- FAQ Section -->
+        <section class="faq-section fade-in">
+            <div class="container">
+                <div class="faq-header">
+                    <h2>Frequently Asked Questions</h2>
+                </div>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How much does it cost to paint my house?</h3>
+                            <i class="fa-solid fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                The cost varies depending on the size of your home, the type of paint used, and the complexity of the project. We provide free, detailed estimates after an on-site evaluation. Generally, interior painting ranges from $2-6 per square foot, while exterior painting ranges from $3-7 per square foot.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How long does a typical painting project take?</h3>
+                            <i class="fa-solid fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Most residential interior projects take 2-5 days, while exterior projects typically take 3-7 days. Commercial projects vary based on size and scope. We always provide a detailed timeline during the estimate process and work efficiently to minimize disruption to your daily routine.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What type of paint do you use?</h3>
+                            <i class="fa-solid fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                We use premium paints from trusted brands like Sherwin-Williams and Benjamin Moore. These high-quality paints provide excellent coverage, durability, and are resistant to fading, cracking, and peeling. We can also accommodate specific brand preferences based on your needs.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Do you offer warranties on your work?</h3>
+                            <i class="fa-solid fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Yes! We stand behind our work with comprehensive warranties. Interior painting comes with a 5-year warranty, exterior painting includes a 5-10 year warranty depending on the number of coats applied, and cabinet painting includes a 2-year warranty. Our warranties cover both labor and materials.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Are you licensed and insured?</h3>
+                            <i class="fa-solid fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Absolutely. Perspective Painting is fully licensed (CSLB LIC #1044037) and carries comprehensive insurance including $2 million in liability coverage. All our employees are covered by Workers' Compensation insurance, giving you complete peace of mind during your project.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Certifications Section -->
+        <section class="certifications-section fade-in">
+            <div class="container">
+                <div class="certifications-header">
+                    <h2>Quality Guaranteed By</h2>
+                </div>
+                <div class="certifications-grid">
+                    <div class="certification-item">
+                        <img src="bbb-logo.png" alt="BBB A+ Rating">
+                    </div>
+                    <div class="certification-item">
+                        <img src="google-5star.png" alt="Google 5 Star Reviews">
+                    </div>
+                    <div class="certification-item">
+                        <img src="licensed-contractor.png" alt="Licensed Contractor">
+                    </div>
+                    <div class="certification-item">
+                        <img src="insured.png" alt="Fully Insured">
+                    </div>
+                    <div class="certification-item">
+                        <img src="lead-safe.png" alt="EPA Lead Safe">
+                    </div>
+                </div>
             </div>
         </section>
     </main>
+    
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-company">
+                    <img src="perspective-logo-old.png" alt="Perspective Painting Logo" class="footer-logo">
+                    <div class="footer-company-name">
+                        <span class="perspective">PERSPECTIVE</span> PAINTING
+                    </div>
+                </div>
+                <p style="color: #94A3B8; margin-bottom: 20px;">Professional painting services for discerning homeowners and business owners across San Diego County. Locally owned and operated since 2018.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/perspectivepaintdesign/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/jon-hall-148702314/" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#about"><i class="fa-solid fa-arrow-right"></i> About Us</a></li>
+                    <li><a href="#services"><i class="fa-solid fa-arrow-right"></i> Services</a></li>
+                    <li><a href="#gallery"><i class="fa-solid fa-arrow-right"></i> Gallery</a></li>
+                    <li><a href="#team"><i class="fa-solid fa-arrow-right"></i> Our Team</a></li>
+                    <li><a href="#contact"><i class="fa-solid fa-arrow-right"></i> Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#"><i class="fa-solid fa-arrow-right"></i> Interior Painting</a></li>
+                    <li><a href="#"><i class="fa-solid fa-arrow-right"></i> Exterior Painting</a></li>
+                    <li><a href="#"><i class="fa-solid fa-arrow-right"></i> Cabinet Refinishing</a></li>
+                    <li><a href="#"><i class="fa-solid fa-arrow-right"></i> Commercial Painting</a></li>
+                    <li><a href="#"><i class="fa-solid fa-arrow-right"></i> Free Estimates</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <div class="business-info">
+                    <p><i class="fa-solid fa-map-marker-alt"></i> 4536 Clairemont Dr. Unit #8109<br>San Diego, CA 92126</p>
+                    <p><i class="fa-solid fa-phone"></i> (619) 818-4816</p>
+                    <p><i class="fa-solid fa-envelope"></i> jon.hall11@gmail.com</p>
+                    <p><i class="fa-solid fa-clock"></i> Mon-Fri: 7am - 6pm<br>Sat: 8am - 4pm</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Perspective Painting Company. All Rights Reserved. | CSLB LIC #1044037</p>
+        </div>
+    </footer>
 
     <script>
-// Intersection Observer for scroll animations
+// Loading Screen
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        document.getElementById('loadingScreen').classList.add('hidden');
+    }, 1000);
+});
+
+// Header Scroll Effect
+window.addEventListener('scroll', function() {
+    const header = document.getElementById('header');
+    if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
+
+// Sticky CTA and Back to Top visibility
+window.addEventListener('scroll', function() {
+    const stickyCTA = document.getElementById('stickyCTA');
+    const backToTop = document.getElementById('backToTop');
+    
+    if (window.scrollY > 500) {
+        stickyCTA.classList.add('visible');
+        backToTop.classList.add('visible');
+    } else {
+        stickyCTA.classList.remove('visible');
+        backToTop.classList.remove('visible');
+    }
+});
+
+// Back to Top functionality
+document.getElementById('backToTop').addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Mobile Menu Toggle
+function toggleMobileMenu() {
+    const mobileNav = document.getElementById('mobileNav');
+    const overlay = document.getElementById('overlay');
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    
+    mobileNav.classList.toggle('active');
+    overlay.classList.toggle('active');
+    menuBtn.classList.toggle('active');
+}
+
+// Mobile Dropdown Toggle
+function toggleDropdown(element) {
+    const parent = element.parentElement;
+    parent.classList.toggle('active');
+    event.preventDefault();
+}
+
+// Smooth scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            const offset = 80;
+            const targetPosition = target.offsetTop - offset;
+            window.scrollTo({ 
+                top: targetPosition, 
+                behavior: 'smooth' 
+            });
+        }
+    });
+});
+
+// Form Progress Bar
+const form = document.getElementById('contactForm');
+const inputs = form.querySelectorAll('input, select');
+const progressBar = document.getElementById('formProgress');
+
+function updateProgress() {
+    const filledInputs = Array.from(inputs).filter(input => input.value.trim() !== '').length;
+    const progress = (filledInputs / inputs.length) * 100;
+    progressBar.style.width = progress + '%';
+    
+    // Add filled class to form groups
+    inputs.forEach(input => {
+        const formGroup = input.closest('.form-group');
+        if (input.value.trim() !== '') {
+            formGroup.classList.add('filled');
+        } else {
+            formGroup.classList.remove('filled');
+        }
+    });
+}
+
+inputs.forEach(input => {
+    input.addEventListener('input', updateProgress);
+    input.addEventListener('change', updateProgress);
+});
+
+// Form submission
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Add loading state to button
+    const submitBtn = form.querySelector('.form-submit');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting...';
+    submitBtn.disabled = true;
+    
+    // Simulate form submission
+    setTimeout(function() {
+        submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> Thank you!';
+        setTimeout(function() {
+            form.reset();
+            updateProgress();
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+            alert('Thank you for your interest! We will contact you within 24 hours.');
+        }, 2000);
+    }, 1500);
+});
+
+// Counter Animation
+function animateCounters() {
+    const counters = document.querySelectorAll('.counter');
+    
+    counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const duration = 2000;
+        const increment = target / (duration / 16);
+        let current = 0;
+        
+        const updateCounter = () => {
+            current += increment;
+            if (current < target) {
+                counter.textContent = Math.floor(current);
+                requestAnimationFrame(updateCounter);
+            } else {
+                counter.textContent = target;
+            }
+        };
+        
+        updateCounter();
+    });
+}
+
+// Before/After Slider
+const beforeAfterSlider = document.getElementById('beforeAfterSlider');
+const afterContainer = document.getElementById('afterContainer');
+const sliderHandle = document.getElementById('sliderHandle');
+
+if (beforeAfterSlider) {
+    let isSliding = false;
+    
+    function updateSliderPosition(x) {
+        const rect = beforeAfterSlider.getBoundingClientRect();
+        const position = Math.min(Math.max(0, x - rect.left), rect.width);
+        const percentage = (position / rect.width) * 100;
+        
+        afterContainer.style.width = percentage + '%';
+        sliderHandle.style.left = percentage + '%';
+    }
+    
+    sliderHandle.addEventListener('mousedown', () => isSliding = true);
+    sliderHandle.addEventListener('touchstart', () => isSliding = true);
+    
+    document.addEventListener('mouseup', () => isSliding = false);
+    document.addEventListener('touchend', () => isSliding = false);
+    
+    document.addEventListener('mousemove', (e) => {
+        if (isSliding) {
+            updateSliderPosition(e.clientX);
+        }
+    });
+    
+    document.addEventListener('touchmove', (e) => {
+        if (isSliding) {
+            updateSliderPosition(e.touches[0].clientX);
+        }
+    });
+}
+
+// Gallery Slider
+let items = document.querySelectorAll('.slider .list .item');
+let next = document.getElementById('next');
+let prev = document.getElementById('prev');
+let thumbnails = document.querySelectorAll('.thumbnail .item');
+let countItem = items.length;
+let itemActive = 0;
+
+next.onclick = function(){
+    itemActive = itemActive + 1;
+    if(itemActive >= countItem){
+        itemActive = 0;
+    }
+    showSlider();
+}
+
+prev.onclick = function(){
+    itemActive = itemActive - 1;
+    if(itemActive < 0){
+        itemActive = countItem - 1;
+    }
+    showSlider();
+}
+
+let refreshInterval = setInterval(() => {
+    next.click();
+}, 5000)
+
+function showSlider(){
+    let itemActiveOld = document.querySelector('.slider .list .item.active');
+    let thumbnailActiveOld = document.querySelector('.thumbnail .item.active');
+    itemActiveOld.classList.remove('active');
+    thumbnailActiveOld.classList.remove('active');
+
+    items[itemActive].classList.add('active');
+    thumbnails[itemActive].classList.add('active');
+    setPositionThumbnail();
+
+    clearInterval(refreshInterval);
+    refreshInterval = setInterval(() => {
+        next.click();
+    }, 5000)
+}
+
+function setPositionThumbnail () {
+    let thumbnailActive = document.querySelector('.thumbnail .item.active');
+    let rect = thumbnailActive.getBoundingClientRect();
+    if (rect.left < 0 || rect.right > window.innerWidth) {
+        thumbnailActive.scrollIntoView({ behavior: 'smooth', inline: 'nearest' });
+    }
+}
+
+thumbnails.forEach((thumbnail, index) => {
+    thumbnail.addEventListener('click', () => {
+        itemActive = index;
+        showSlider();
+    })
+});
+
+// Reviews Carousel
+const reviewsTrack = document.getElementById('reviewsTrack');
+const reviewPrev = document.getElementById('reviewPrev');
+const reviewNext = document.getElementById('reviewNext');
+const indicators = document.querySelectorAll('.indicator');
+let currentReview = 0;
+const totalReviews = 3;
+
+function updateReviewCarousel() {
+    reviewsTrack.style.transform = `translateX(-${currentReview * 100}%)`;
+    
+    indicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === currentReview);
+    });
+}
+
+reviewNext.addEventListener('click', () => {
+    currentReview = (currentReview + 1) % totalReviews;
+    updateReviewCarousel();
+});
+
+reviewPrev.addEventListener('click', () => {
+    currentReview = (currentReview - 1 + totalReviews) % totalReviews;
+    updateReviewCarousel();
+});
+
+indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => {
+        currentReview = index;
+        updateReviewCarousel();
+    });
+});
+
+// Auto-rotate reviews
+setInterval(() => {
+    currentReview = (currentReview + 1) % totalReviews;
+    updateReviewCarousel();
+}, 5000);
+
+// FAQ Accordion
+const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    
+    question.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        
+        // Close all FAQ items
+        faqItems.forEach(faq => faq.classList.remove('active'));
+        
+        // Toggle current item
+        if (!isActive) {
+            item.classList.add('active');
+        }
+    });
+});
+
+// Color Tool
+const colorOptions = document.querySelectorAll('.color-option');
+const colorPreview = document.getElementById('colorPreview');
+const customColorPicker = document.getElementById('customColorPicker');
+
+colorOptions.forEach(option => {
+    option.addEventListener('click', function() {
+        // Handle custom color picker click
+        if (this.classList.contains('custom-color-option')) {
+            return; // Let the input handle the color selection
+        }
+        
+        const color = this.getAttribute('data-color');
+        
+        // Update preview
+        colorPreview.style.backgroundColor = color;
+        colorPreview.innerHTML = `<span class="color-preview-label">${color}</span>`;
+        
+        // Update active state
+        colorOptions.forEach(opt => opt.classList.remove('active'));
+        this.classList.add('active');
+    });
+});
+
+// Custom color picker handler
+if (customColorPicker) {
+    customColorPicker.addEventListener('input', function() {
+        const color = this.value;
+        
+        // Update preview
+        colorPreview.style.backgroundColor = color;
+        colorPreview.innerHTML = `<span class="color-preview-label">Custom: ${color}</span>`;
+        
+        // Update active state
+        colorOptions.forEach(opt => opt.classList.remove('active'));
+        this.closest('.color-option').classList.add('active');
+    });
+}
+
+// Intersection Observer for animations
 const observerOptions = {
-    threshold: 0.2,
+    threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
 };
 
@@ -1334,187 +4122,38 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
+            
+            // Trigger counter animation when about section is visible
+            if (entry.target.classList.contains('about-section')) {
+                animateCounters();
+            }
         }
     });
 }, observerOptions);
 
-// Observe all sections
-document.querySelectorAll('.our-work-section, .our-team-section, .together-section').forEach(section => {
-    observer.observe(section);
+// Observe all animated elements
+document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in').forEach(el => {
+    observer.observe(el);
 });
 
-// Draggable Carousel Class
-class DraggableCarousel {
-    constructor(container, items) {
-        this.container = container;
-        this.items = Array.from(items);
-        this.currentIndex = 0;
-        this.isDragging = false;
-        this.startX = 0;
-        this.currentX = 0;
-        this.init();
-    }
-    
-    init() {
-        this.updateCarousel();
-        
-        // Mouse events
-        this.container.addEventListener('mousedown', this.handleStart.bind(this));
-        this.container.addEventListener('mousemove', this.handleMove.bind(this));
-        this.container.addEventListener('mouseup', this.handleEnd.bind(this));
-        this.container.addEventListener('mouseleave', this.handleEnd.bind(this));
-        
-        // Touch events
-        this.container.addEventListener('touchstart', this.handleStart.bind(this));
-        this.container.addEventListener('touchmove', this.handleMove.bind(this));
-        this.container.addEventListener('touchend', this.handleEnd.bind(this));
-        
-        // Click events for items
-        this.items.forEach((item, index) => {
-            item.addEventListener('click', (e) => {
-                if (!this.isDragging) {
-                    this.goToSlide(index);
-                }
-            });
-        });
-    }
-    
-    handleStart(e) {
-        this.isDragging = true;
-        this.container.classList.add('dragging');
-        this.startX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
-    }
-    
-    handleMove(e) {
-        if (!this.isDragging) return;
-        e.preventDefault();
-        this.currentX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
-    }
-    
-    handleEnd() {
-        if (!this.isDragging) return;
-        this.isDragging = false;
-        this.container.classList.remove('dragging');
-        
-        const diff = this.currentX - this.startX;
-        if (Math.abs(diff) > 50) {
-            if (diff > 0) {
-                this.prev();
-            } else {
-                this.next();
+// Lazy load images
+const imageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const img = entry.target;
+            if (img.dataset.src) {
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
+                observer.unobserve(img);
             }
         }
-    }
-    
-    next() {
-        this.currentIndex = (this.currentIndex + 1) % this.items.length;
-        this.updateCarousel();
-    }
-    
-    prev() {
-        this.currentIndex = (this.currentIndex - 1 + this.items.length) % this.items.length;
-        this.updateCarousel();
-    }
-    
-    goToSlide(index) {
-        this.currentIndex = index;
-        this.updateCarousel();
-    }
-    
-    updateCarousel() {
-        this.items.forEach((item, index) => {
-            item.classList.remove('active');
-            const offset = (index - this.currentIndex + this.items.length) % this.items.length;
-            item.style.setProperty('--offset', offset);
-        });
-        this.items[this.currentIndex].classList.add('active');
-    }
-}
-
-// Initialize Work Carousel
-const workCarousel = document.getElementById('workCarousel');
-const workItems = workCarousel.querySelectorAll('.item');
-const workCarouselInstance = new DraggableCarousel(workCarousel, workItems);
-
-// Navigation buttons for work carousel
-const nextBtn = document.querySelector('.next');
-const prevBtn = document.querySelector('.prev');
-
-nextBtn?.addEventListener('click', () => workCarouselInstance.next());
-prevBtn?.addEventListener('click', () => workCarouselInstance.prev());
-
-// Team Carousel with Details
-const teamCarousel = document.getElementById('teamCarousel');
-const teamMembers = teamCarousel.querySelectorAll('.team-member');
-const teamDetails = document.getElementById('teamDetails');
-const teamCarouselInstance = new DraggableCarousel(teamCarousel, teamMembers);
-
-// Update team details when member is selected
-function updateTeamDetails(member) {
-    const name = member.dataset.name;
-    const role = member.dataset.role;
-    const bio = member.dataset.bio;
-    
-    teamDetails.classList.remove('active');
-    setTimeout(() => {
-        teamDetails.querySelector('h2').textContent = name;
-        teamDetails.querySelector('.role').textContent = role;
-        teamDetails.querySelector('.bio').textContent = bio;
-        teamDetails.classList.add('active');
-    }, 300);
-}
-
-// Override team carousel update to include details
-const originalUpdate = teamCarouselInstance.updateCarousel.bind(teamCarouselInstance);
-teamCarouselInstance.updateCarousel = function() {
-    originalUpdate();
-    const activeMember = this.items[this.currentIndex];
-    updateTeamDetails(activeMember);
-};
-
-// Initialize team details with first member
-updateTeamDetails(teamMembers[0]);
-
-// Mobile Menu
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
-const mobileCloseBtn = document.querySelector('.mobile-close-btn');
-
-function openMobileMenu() {
-    mobileMenuBtn.classList.add('active');
-    mobileMenuOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeMobileMenu() {
-    mobileMenuBtn.classList.remove('active');
-    mobileMenuOverlay.classList.remove('active');
-    document.body.style.overflow = '';
-}
-
-mobileMenuBtn?.addEventListener('click', openMobileMenu);
-mobileCloseBtn?.addEventListener('click', closeMobileMenu);
-
-mobileMenuOverlay?.addEventListener('click', (e) => {
-    if (e.target === mobileMenuOverlay) {
-        closeMobileMenu();
-    }
+    });
 });
 
-// Close mobile menu on escape key
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && mobileMenuOverlay.classList.contains('active')) {
-        closeMobileMenu();
-    }
-});
-
-// Contact Form
-document.getElementById('contactForm')?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    // Handle form submission here
-    alert('Thank you for your message! We will contact you soon.');
-    e.target.reset();
-});
+// Apply lazy loading to images (uncomment and add data-src attributes to images)
+// document.querySelectorAll('img[data-src]').forEach(img => {
+//     imageObserver.observe(img);
+// });
     </script>
 </body>
-</html> 
+</html>
