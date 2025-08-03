@@ -44,26 +44,6 @@
     --shadow-gold: 0 10px 30px rgba(212, 175, 55, 0.2);
     --radius: 20px;
     --transition: all 0.3s ease;
-    
-    /* Alternative Color Scheme 1 - Warm & Inviting
-    --primary: #E67E22;
-    --secondary: #2C3E50;
-    --accent: #3498DB;
-    --dark: #1A1A1A;
-    --gradient-warm: linear-gradient(135deg, #E67E22 0%, #D35400 100%);
-    --gradient-cool: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);
-    --gradient-hero: linear-gradient(180deg, rgba(26,26,26,0.95) 0%, rgba(44,62,80,0.85) 100%);
-    */
-    
-    /* Alternative Color Scheme 2 - Modern & Bold
-    --primary: #6C5CE7;
-    --secondary: #2D3436;
-    --accent: #00B894;
-    --dark: #0A0E27;
-    --gradient-warm: linear-gradient(135deg, #6C5CE7 0%, #5F3DC4 100%);
-    --gradient-cool: linear-gradient(135deg, #2D3436 0%, #636E72 100%);
-    --gradient-hero: linear-gradient(180deg, rgba(10,14,39,0.95) 0%, rgba(45,52,54,0.85) 100%);
-    */
 }
 
 /* Loading Screen */
@@ -308,7 +288,6 @@ header.scrolled {
 .header-left {
     display: flex;
     align-items: center;
-    gap: 40px;
 }
 
 .main-logo {
@@ -343,30 +322,35 @@ header.scrolled {
     color: var(--secondary);
 }
 
-.header-contact-info {
+/* CTA Buttons in Header */
+.header-cta-buttons {
     display: flex;
     align-items: center;
-    gap: 30px;
-    color: var(--text-dark);
-    font-size: 14px;
+    gap: 15px;
 }
 
-.header-contact-item {
-    display: flex;
+.phone-btn {
+    background: var(--gradient-cool);
+    color: white;
+    padding: 14px 24px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(27, 79, 114, 0.3);
+    display: inline-flex;
     align-items: center;
     gap: 8px;
-    text-decoration: none;
-    color: var(--text-dark);
-    transition: var(--transition);
 }
 
-.header-contact-item:hover {
-    color: var(--primary);
+.phone-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(27, 79, 114, 0.4);
 }
 
-.header-contact-item i {
-    color: var(--primary);
-    font-size: 16px;
+.phone-btn i {
+    font-size: 14px;
 }
 
 /* Navigation */
@@ -374,6 +358,7 @@ header.scrolled {
     display: flex;
     align-items: center;
     gap: 40px;
+    margin-left: auto;
 }
 
 .nav-menu {
@@ -440,7 +425,9 @@ header.scrolled {
 }
 
 .dropdown-menu a {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 8px;
     padding: 14px 24px;
     color: var(--text-dark);
     text-decoration: none;
@@ -457,6 +444,13 @@ header.scrolled {
     background: var(--light-bg);
     color: var(--primary);
     padding-left: 28px;
+}
+
+.dropdown-menu a i {
+    font-size: 14px;
+    color: var(--primary);
+    width: 16px;
+    text-align: center;
 }
 
 .quote-btn {
@@ -582,7 +576,9 @@ header.scrolled {
 }
 
 .mobile-dropdown a {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 8px;
     padding: 8px 0;
     color: var(--text-light);
     text-decoration: none;
@@ -591,6 +587,22 @@ header.scrolled {
 
 .mobile-dropdown a:hover {
     color: var(--primary);
+}
+
+.mobile-dropdown a i {
+    color: var(--primary);
+    font-size: 12px;
+}
+
+.mobile-nav-item .btn {
+    width: 100%;
+    text-align: center;
+}
+
+.mobile-nav-item .btn-secondary {
+    background: var(--gradient-cool);
+    border: none;
+    color: white;
 }
 
 /* Overlay */
@@ -618,7 +630,7 @@ header.scrolled {
     position: relative;
     display: flex;
     align-items: center;
-    background-image: url('team.jpg');
+    background-image: url('team-photo-outdoor.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -764,15 +776,15 @@ header.scrolled {
 
 /* Enhanced Contact Form */
 .contact-form-container {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(245, 247, 250, 0.95);
     backdrop-filter: blur(10px);
-    padding: 30px;
+    padding: 40px 30px;
     border-radius: var(--radius);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-    max-width: 400px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    max-width: 450px;
     position: relative;
     animation: fadeInRight 1s ease 0.5s both;
-    border: 1px solid rgba(212, 175, 55, 0.2);
+    border: 1px solid rgba(0,0,0,0.05);
 }
 
 @keyframes fadeInRight {
@@ -786,45 +798,50 @@ header.scrolled {
     }
 }
 
-.form-progress {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: rgba(0,0,0,0.1);
-    border-radius: var(--radius) var(--radius) 0 0;
-    overflow: hidden;
-}
-
-.form-progress-bar {
-    height: 100%;
-    background: var(--gradient-warm);
-    width: 0%;
-    transition: width 0.3s ease;
-}
-
 .form-header {
-    text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.form-header::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: #1976D2;
+    border-radius: 2px;
 }
 
 .form-header h3 {
-    font-size: 24px;
+    font-size: 28px;
     color: var(--text-dark);
-    margin-bottom: 8px;
+    margin-bottom: 5px;
     font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.2;
 }
 
-.form-header p {
-    color: var(--text-light);
-    font-size: 14px;
+.form-header .subtitle {
+    color: var(--text-dark);
+    font-size: 24px;
+    font-weight: 600;
 }
 
 .contact-form {
     display: flex;
     flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: flex;
     gap: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
 }
 
 .form-group {
@@ -832,48 +849,86 @@ header.scrolled {
 }
 
 .form-group input,
-.form-group select {
+.form-group select,
+.form-group textarea {
     width: 100%;
-    padding: 12px 16px;
-    border: 2px solid rgba(0,0,0,0.1);
-    border-radius: 10px;
-    font-size: 14px;
+    padding: 14px 18px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 15px;
     font-family: inherit;
     transition: var(--transition);
-    background: rgba(245, 247, 250, 0.7);
+    background: white;
+    color: var(--text-dark);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #999;
 }
 
 .form-group input:focus,
-.form-group select:focus {
+.form-group select:focus,
+.form-group textarea:focus {
     outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
-    background: white;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(46, 134, 171, 0.1);
 }
 
-.form-group.filled input,
-.form-group.filled select {
-    border-color: var(--accent);
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-group select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23333' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+    padding-right: 40px;
+}
+
+.recaptcha-wrapper {
+    background: white;
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.recaptcha-wrapper input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.recaptcha-wrapper label {
+    color: var(--text-dark);
+    font-size: 14px;
+    cursor: pointer;
 }
 
 .form-submit {
-    background: var(--gradient-warm);
+    background: #1976D2;
     color: white;
-    padding: 14px 32px;
+    padding: 16px 32px;
     border: none;
-    border-radius: 30px;
-    font-size: 16px;
+    border-radius: 4px;
+    font-size: 18px;
     font-weight: 600;
     cursor: pointer;
     transition: var(--transition);
-    box-shadow: var(--shadow-gold);
-    position: relative;
-    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(25, 118, 210, 0.3);
+    text-transform: uppercase;
 }
 
 .form-submit:hover {
+    background: #1565C0;
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 6px 20px rgba(25, 118, 210, 0.4);
 }
 
 /* Wave Transition */
@@ -1418,10 +1473,10 @@ header.scrolled {
 
 .slider .list .item .content {
     position: absolute;
-    left: 10%;
+    left: 5%;
     bottom: 10%;
-    width: 500px;
-    max-width: 80%;
+    width: 400px;
+    max-width: 40%;
     z-index: 1;
 }
 
@@ -1483,7 +1538,7 @@ header.scrolled {
 .arrows {
     position: absolute;
     top: 50%;
-    right: 50px;
+    right: 20px;
     transform: translateY(-50%);
     z-index: 100;
     display: flex;
@@ -1514,15 +1569,17 @@ header.scrolled {
 .thumbnail {
     position: absolute;
     bottom: 50px;
+    right: 50px;
     z-index: 11;
     display: flex;
     gap: 10px;
-    width: 100%;
+    width: auto;
+    max-width: 45%;
     height: 120px;
-    padding: 0 50px;
+    padding: 0;
     box-sizing: border-box;
     overflow: auto;
-    justify-content: center;
+    justify-content: flex-end;
 }
 
 .thumbnail::-webkit-scrollbar {
@@ -2502,8 +2559,13 @@ footer::before {
 
 /* Responsive Design */
 @media (max-width: 1200px) {
-    .header-contact-info {
-        display: none;
+    .header-cta-buttons {
+        gap: 10px;
+    }
+    
+    .phone-btn {
+        font-size: 14px;
+        padding: 14px 20px;
     }
 }
 
@@ -2604,12 +2666,28 @@ footer::before {
     }
     
     .arrows {
-        right: 20px;
+        right: 10px;
+        gap: 5px;
+    }
+    
+    .arrows button {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
     }
     
     .thumbnail {
         bottom: 20px;
-        padding: 0 20px;
+        right: 20px;
+        max-width: 70%;
+        padding: 0;
+    }
+    
+    .slider .list .item .content {
+        left: 20px;
+        bottom: 140px;
+        width: 60%;
+        max-width: 300px;
     }
     
     .reviews-stats {
@@ -2641,6 +2719,20 @@ footer::before {
     
     .contact-form-container {
         padding: 25px 20px;
+        margin: 0 10px;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .form-header h3 {
+        font-size: 24px;
+    }
+    
+    .form-header .subtitle {
+        font-size: 20px;
     }
     
     .section-title {
@@ -2682,6 +2774,19 @@ footer::before {
         padding: 12px 20px;
         font-size: 14px;
     }
+    
+    .arrows {
+        right: 10px;
+    }
+    
+    .thumbnail {
+        gap: 5px;
+        height: 80px;
+    }
+    
+    .thumbnail .item {
+        width: 100px;
+    }
 }
 
 /* Print Styles */
@@ -2722,23 +2827,13 @@ footer::before {
     <header id="header">
         <div class="header-content">
             <div class="header-left">
-                <a href="#" class="main-logo">
+                <a href="index.html" class="main-logo">
                     <img src="perspective-logo-old.png" alt="Perspective Painting Logo">
                     <div class="company-name">
                         <span class="perspective">PERSPECTIVE</span>
                         <span class="painting">PAINTING</span>
                     </div>
                 </a>
-                <div class="header-contact-info">
-                    <a href="tel:6198184816" class="header-contact-item">
-                        <i class="fa-solid fa-phone"></i>
-                        <span>(619) 818-4816</span>
-                    </a>
-                    <a href="mailto:jon.hall11@gmail.com" class="header-contact-item">
-                        <i class="fa-solid fa-envelope"></i>
-                        <span>jon.hall11@gmail.com</span>
-                    </a>
-                </div>
             </div>
             
             <nav class="nav-container">
@@ -2760,21 +2855,28 @@ footer::before {
                         </div>
                     </div>
                     <div class="nav-item">
-                        <a href="#gallery" class="nav-link">Gallery</a>
+                        <a href="gallery.html" class="nav-link">Gallery</a>
                     </div>
                     <div class="nav-item">
-                        <a href="#contact" class="nav-link">Contact</a>
+                        <a href="contact.html" class="nav-link">Contact</a>
                         <div class="dropdown-menu">
-                            <a href="#inquiry">General Inquiry</a>
-                            <a href="#hiring">Join Our Team</a>
-                            <a href="#estimate">Free Estimate</a>
+                            <a href="contact.html#inquiry">General Inquiry</a>
+                            <a href="contact.html#hiring">Join Our Team</a>
+                            <a href="contact.html#estimate">Free Estimate</a>
+                            <a href="mailto:jon.hall11@gmail.com"><i class="fa-solid fa-envelope"></i> Email Us</a>
                         </div>
                     </div>
                 </div>
-                <a href="#contact" class="quote-btn">
-                    <i class="fa-solid fa-paintbrush"></i>
-                    FREE ESTIMATE
-                </a>
+                <div class="header-cta-buttons">
+                    <a href="tel:6198184816" class="phone-btn">
+                        <i class="fa-solid fa-phone"></i>
+                        (619) 818-4816
+                    </a>
+                    <a href="#contact" class="quote-btn">
+                        <i class="fa-solid fa-paintbrush"></i>
+                        FREE ESTIMATE
+                    </a>
+                </div>
             </nav>
             
             <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle mobile menu">
@@ -2811,18 +2913,23 @@ footer::before {
                     </div>
                 </div>
                 <div class="mobile-nav-item">
-                    <a href="#gallery" class="mobile-nav-link" onclick="toggleMobileMenu()">GALLERY</a>
+                    <a href="gallery.html" class="mobile-nav-link" onclick="toggleMobileMenu()">GALLERY</a>
                 </div>
                 <div class="mobile-nav-item">
-                    <a href="#contact" class="mobile-nav-link" onclick="toggleDropdown(this)">CONTACT</a>
+                    <a href="contact.html" class="mobile-nav-link" onclick="toggleDropdown(this)">CONTACT</a>
                     <div class="mobile-dropdown">
-                        <a href="#inquiry" onclick="toggleMobileMenu()">General Inquiry</a>
-                        <a href="#hiring" onclick="toggleMobileMenu()">Join Our Team</a>
-                        <a href="#estimate" onclick="toggleMobileMenu()">Free Estimate</a>
+                        <a href="contact.html#inquiry" onclick="toggleMobileMenu()">General Inquiry</a>
+                        <a href="contact.html#hiring" onclick="toggleMobileMenu()">Join Our Team</a>
+                        <a href="contact.html#estimate" onclick="toggleMobileMenu()">Free Estimate</a>
                     </div>
                 </div>
                 <div class="mobile-nav-item">
                     <a href="#contact" class="btn btn-primary" onclick="toggleMobileMenu()">FREE ESTIMATE</a>
+                </div>
+                <div class="mobile-nav-item">
+                    <a href="tel:6198184816" class="btn btn-secondary" onclick="toggleMobileMenu()">
+                        <i class="fa-solid fa-phone"></i> (619) 818-4816
+                    </a>
                 </div>
             </div>
         </div>
@@ -2854,34 +2961,48 @@ footer::before {
                 </div>
                 
                 <div class="contact-form-container">
-                    <div class="form-progress">
-                        <div class="form-progress-bar" id="formProgress"></div>
-                    </div>
                     <div class="form-header">
-                        <h3>Request Free Estimate</h3>
-                        <p>No obligation consultation</p>
+                        <h3>Need a Painting Quote?</h3>
+                        <div class="subtitle">Get One Today.</div>
                     </div>
                     <form class="contact-form" id="contactForm">
-                        <div class="form-group">
-                            <input type="text" placeholder="Full Name" required name="name">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" placeholder="First Name" required name="firstName">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" placeholder="Last Name" required name="lastName">
+                            </div>
                         </div>
                         <div class="form-group">
-                            <input type="email" placeholder="Email Address" required name="email">
+                            <input type="tel" placeholder="Phone" required name="phone">
                         </div>
                         <div class="form-group">
-                            <input type="tel" placeholder="Phone Number" required name="phone">
+                            <input type="email" placeholder="Email" required name="email">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Location" required name="location">
                         </div>
                         <div class="form-group">
                             <select required name="service">
                                 <option value="">Select Service</option>
-                                <option value="residential-interior">Interior Painting</option>
-                                <option value="residential-exterior">Exterior Painting</option>
-                                <option value="commercial">Commercial</option>
+                                <option value="interior">Interior Painting</option>
+                                <option value="exterior">Exterior Painting</option>
+                                <option value="commercial">Commercial Painting</option>
                                 <option value="cabinet">Cabinet Refinishing</option>
-                                <option value="other">Other</option>
+                                <option value="hoa">HOA & Condo Painting</option>
+                                <option value="deck">Deck & Fence Staining</option>
+                                <option value="other">Other Service</option>
                             </select>
                         </div>
-                        <button type="submit" class="form-submit">Get My Free Estimate</button>
+                        <div class="form-group">
+                            <textarea placeholder="Describe your project details" name="details" rows="4"></textarea>
+                        </div>
+                        <div class="recaptcha-wrapper">
+                            <input type="checkbox" id="notRobot" required>
+                            <label for="notRobot">I'm not a robot</label>
+                        </div>
+                        <button type="submit" class="form-submit">Get A Free Quote</button>
                     </form>
                 </div>
             </div>
@@ -2981,19 +3102,9 @@ footer::before {
                         <p>Expert guidance to choose the perfect colors for your space</p>
                     </div>
                     <div class="service-list-item">
-                        <i class="fa-solid fa-brush"></i>
-                        <h4>Drywall Repair</h4>
-                        <p>Complete surface preparation including repairs and texturing</p>
-                    </div>
-                    <div class="service-list-item">
                         <i class="fa-solid fa-store"></i>
                         <h4>Retail & Restaurant</h4>
                         <p>Quick turnaround painting for commercial spaces</p>
-                    </div>
-                    <div class="service-list-item">
-                        <i class="fa-solid fa-shield-halved"></i>
-                        <h4>Specialty Coatings</h4>
-                        <p>Epoxy floors, anti-graffiti, and protective finishes</p>
                     </div>
                     <div class="service-list-item">
                         <i class="fa-solid fa-award"></i>
@@ -3401,6 +3512,40 @@ footer::before {
                             </div>
                         </div>
                     </div>
+                    
+                    <div class="team-card scale-in">
+                        <div class="team-card-image">
+                            <img src="team-member-7.jpg" alt="David Park">
+                            <div class="team-card-overlay">
+                                <p>David specializes in custom finishes and decorative painting techniques, bringing unique artistic vision to every project.</p>
+                            </div>
+                        </div>
+                        <div class="team-card-content">
+                            <h3>David Park</h3>
+                            <p class="role">Finish Specialist</p>
+                            <div class="team-card-social">
+                                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-card scale-in">
+                        <div class="team-card-image">
+                            <img src="team-member-8.jpg" alt="Maria Gonzalez">
+                            <div class="team-card-overlay">
+                                <p>Maria leads our customer service team, ensuring excellent communication and satisfaction from initial consultation to project completion.</p>
+                            </div>
+                        </div>
+                        <div class="team-card-content">
+                            <h3>Maria Gonzalez</h3>
+                            <p class="role">Customer Relations</p>
+                            <div class="team-card-social">
+                                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -3536,50 +3681,6 @@ footer::before {
                 
                 <div class="reviews-carousel">
                     <div class="reviews-track" id="reviewsTrack">
-                        <div class="review-card">
-                            <div class="review-card-inner">
-                                <div class="review-header">
-                                    <div class="review-avatar">JD</div>
-                                    <div class="review-meta">
-                                        <h4>John Davidson</h4>
-                                        <div class="review-date">2 weeks ago</div>
-                                    </div>
-                                </div>
-                                <div class="review-stars">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                </div>
-                                <div class="review-text">
-                                    "Absolutely outstanding service from start to finish! The team was professional, punctual, and the quality of work exceeded our expectations. Our home looks brand new!"
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="review-card">
-                            <div class="review-card-inner">
-                                <div class="review-header">
-                                    <div class="review-avatar">SM</div>
-                                    <div class="review-meta">
-                                        <h4>Sarah Miller</h4>
-                                        <div class="review-date">1 month ago</div>
-                                    </div>
-                                </div>
-                                <div class="review-stars">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                </div>
-                                <div class="review-text">
-                                    "We hired Perspective for our office renovation and couldn't be happier. They worked around our schedule, kept everything clean, and the results are stunning. Highly recommend!"
-                                </div>
-                            </div>
-                        </div>
-                        
                         <div class="review-card">
                             <div class="review-card-inner">
                                 <div class="review-header">
@@ -3743,9 +3844,9 @@ footer::before {
                 <ul>
                     <li><a href="#about"><i class="fa-solid fa-arrow-right"></i> About Us</a></li>
                     <li><a href="#services"><i class="fa-solid fa-arrow-right"></i> Services</a></li>
-                    <li><a href="#gallery"><i class="fa-solid fa-arrow-right"></i> Gallery</a></li>
+                    <li><a href="gallery.html"><i class="fa-solid fa-arrow-right"></i> Gallery</a></li>
                     <li><a href="#team"><i class="fa-solid fa-arrow-right"></i> Our Team</a></li>
-                    <li><a href="#contact"><i class="fa-solid fa-arrow-right"></i> Contact</a></li>
+                    <li><a href="contact.html"><i class="fa-solid fa-arrow-right"></i> Contact</a></li>
                 </ul>
             </div>
             
@@ -3847,35 +3948,17 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Form Progress Bar
-const form = document.getElementById('contactForm');
-const inputs = form.querySelectorAll('input, select');
-const progressBar = document.getElementById('formProgress');
-
-function updateProgress() {
-    const filledInputs = Array.from(inputs).filter(input => input.value.trim() !== '').length;
-    const progress = (filledInputs / inputs.length) * 100;
-    progressBar.style.width = progress + '%';
-    
-    // Add filled class to form groups
-    inputs.forEach(input => {
-        const formGroup = input.closest('.form-group');
-        if (input.value.trim() !== '') {
-            formGroup.classList.add('filled');
-        } else {
-            formGroup.classList.remove('filled');
-        }
-    });
-}
-
-inputs.forEach(input => {
-    input.addEventListener('input', updateProgress);
-    input.addEventListener('change', updateProgress);
-});
-
 // Form submission
+const form = document.getElementById('contactForm');
 form.addEventListener('submit', function(e) {
     e.preventDefault();
+    
+    // Validate reCAPTCHA
+    const notRobot = document.getElementById('notRobot');
+    if (!notRobot.checked) {
+        alert('Please confirm you are not a robot');
+        return;
+    }
     
     // Add loading state to button
     const submitBtn = form.querySelector('.form-submit');
@@ -3888,7 +3971,6 @@ form.addEventListener('submit', function(e) {
         submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> Thank you!';
         setTimeout(function() {
             form.reset();
-            updateProgress();
             submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
             alert('Thank you for your interest! We will contact you within 24 hours.');
@@ -4135,25 +4217,50 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in').forEach(el => {
     observer.observe(el);
 });
-
-// Lazy load images
-const imageObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const img = entry.target;
-            if (img.dataset.src) {
-                img.src = img.dataset.src;
-                img.removeAttribute('data-src');
-                observer.unobserve(img);
-            }
-        }
-    });
-});
-
-// Apply lazy loading to images (uncomment and add data-src attributes to images)
-// document.querySelectorAll('img[data-src]').forEach(img => {
-//     imageObserver.observe(img);
-// });
     </script>
 </body>
-</html>
+</html>inner">
+                                <div class="review-header">
+                                    <div class="review-avatar">JD</div>
+                                    <div class="review-meta">
+                                        <h4>John Davidson</h4>
+                                        <div class="review-date">2 weeks ago</div>
+                                    </div>
+                                </div>
+                                <div class="review-stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <div class="review-text">
+                                    "Absolutely outstanding service from start to finish! The team was professional, punctual, and the quality of work exceeded our expectations. Our home looks brand new!"
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="review-card">
+                            <div class="review-card-inner">
+                                <div class="review-header">
+                                    <div class="review-avatar">SM</div>
+                                    <div class="review-meta">
+                                        <h4>Sarah Miller</h4>
+                                        <div class="review-date">1 month ago</div>
+                                    </div>
+                                </div>
+                                <div class="review-stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <div class="review-text">
+                                    "We hired Perspective for our office renovation and couldn't be happier. They worked around our schedule, kept everything clean, and the results are stunning. Highly recommend!"
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="review-card">
+                            <div class="review-card-

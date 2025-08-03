@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View our portfolio of professional painting projects in San Diego. Interior, exterior, commercial, and residential painting gallery.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <title>Gallery - Perspective Painting | San Diego Painting Portfolio</title>
+    
+    <style>
+/* Include all the base styles from index.html */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Professional Color Scheme - Deep & Sophisticated */
+    --primary: #D4AF37; /* Elegant Gold */
+    --secondary: #1B4F72; /* Deep Navy Blue */
+    --accent: #2E86AB; /* Professional Blue */
+    --dark: #0A1929; /* Rich Dark Blue */
+    --light-bg: #F5F7FA; /* Soft Gray Blue */
+    --soft-bg: #E8ECF1; /* Light Gray */
+    --neutral-bg: #2C3E50; /* Charcoal Blue */
+    --warm-bg: #34495E; /* Warm Gray */
+    --text-dark: #1A1A1A;
+    --text-light: #5A6C7D;
+    --white: #FFFFFF;
+    --gradient-warm: linear-gradient(135deg, #D4AF37 0%, #B8941F 100%);
+    --gradient-cool: linear-gradient(135deg, #1B4F72 0%, #2E86AB 100%);
+    --gradient-dark: linear-gradient(135deg, #0A1929 0%, #1B4F72 100%);
+    --gradient-hero: linear-gradient(180deg, rgba(10,25,41,0.95) 0%, rgba(27,79,114,0.85) 100%);
+    --gradient-soft: linear-gradient(135deg, #F5F7FA 0%, #E8ECF1 100%);
+    --gradient-premium: linear-gradient(135deg, #1A1A1A 0%, #2C3E50 50%, #34495E 100%);
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.15);
+    --shadow-gold: 0 10px 30px rgba(212, 175, 55, 0.2);
+    --radius: 20px;
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #F5F7FA;
+    min-height: 100vh;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* Common Styles */
+.btn {
+    padding: 14px 32px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: var(--transition);
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-primary {
+    background: var(--gradient-warm);
+    color: white;
+    box-shadow: var(--shadow-gold);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+}
+
+/* Gallery Hero Section */
+.gallery-hero {
+    background: var(--gradient-dark);
+    color: white;
+    padding: 120px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-hero::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 50%;
+    top: -300px;
+    right: -300px;
+}
+
+.gallery-hero h1 {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.gallery-hero p {
+    font-size: 20px;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* Gallery Filter */
+.gallery-filter {
+    padding: 40px 20px;
+    background: white;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 95px;
+    z-index: 100;
+}
+
+.filter-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 2px solid var(--light-bg);
+    color: var(--text-dark);
+    padding: 10px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+    font-family: inherit;
+}
+
+.filter-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.filter-btn.active {
+    background: var(--gradient-warm);
+    border-color: transparent;
+    color: white;
+    box-shadow: var(--shadow-gold);
+}
+
+/* Gallery Grid */
+.gallery-grid-section {
+    padding: 60px 20px 100px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: var(--transition);
+    background: white;
+}
+
+.gallery-item:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--gradient-hero);
+    padding: 30px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    transform: translateY(0);
+}
+
+.gallery-overlay h3 {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.gallery-overlay p {
+    color: rgba(255,255,255,0.9);
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.gallery-tags {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.gallery-tag {
+    background: rgba(212, 175, 55, 0.3);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 12px;
+}
+
+/* Gallery Lightbox */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.95);
+    z-index: 2000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.lightbox-content img {
+    width: 100%;
+    height: auto;
+    max-height: 90vh;
+    object-fit: contain;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.lightbox-close:hover {
+    color: var(--primary);
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.1);
+    border: none;
+    color: white;
+    font-size: 24px;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.lightbox-nav:hover {
+    background: rgba(212, 175, 55, 0.3);
+}
+
+.lightbox-prev {
+    left: 20px;
+}
+
+.lightbox-next {
+    right: 20px;
+}
+
+/* Gallery CTA */
+.gallery-cta {
+    background: var(--gradient-soft);
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.gallery-cta h2 {
+    font-size: 42px;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+}
+
+.gallery-cta p {
+    font-size: 20px;
+    color: var(--text-light);
+    margin-bottom: 30px;
+}
+
+/* Load More Button */
+.load-more-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.load-more-btn {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    padding: 14px 40px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+    font-family: inherit;
+    font-size: 16px;
+}
+
+.load-more-btn:hover {
+    background: var(--gradient-warm);
+    border-color: transparent;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-gold);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+    }
+    
+    .gallery-hero h1 {
+        font-size: 32px;
+    }
+    
+    .gallery-filter {
+        top: 0;
+        padding: 20px;
+    }
+    
+    .filter-container {
+        gap: 10px;
+    }
+    
+    .filter-btn {
+        font-size: 14px;
+        padding: 8px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <!-- Include header from index.html -->
+    
+    <main>
+        <section class="gallery-hero">
+            <h1>Our Portfolio</h1>
+            <p>Explore our collection of residential and commercial painting projects throughout San Diego County</p>
+        </section>
+        
+        <section class="gallery-filter">
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="interior">Interior</button>
+                <button class="filter-btn" data-filter="exterior">Exterior</button>
+                <button class="filter-btn" data-filter="commercial">Commercial</button>
+                <button class="filter-btn" data-filter="residential">Residential</button>
+                <button class="filter-btn" data-filter="cabinet">Cabinets</button>
+            </div>
+        </section>
+        
+        <section class="gallery-grid-section">
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Gallery Items -->
+                <div class="gallery-item" data-category="interior residential">
+                    <img src="gallery/modern-living-room.jpg" alt="Modern Living Room">
+                    <div class="gallery-overlay">
+                        <h3>Modern Living Room</h3>
+                        <p>La Jolla, CA</p>
+                        <p>Complete interior transformation</p>
+                        <div class="gallery-tags">
+                            <span class="gallery-tag">Interior</span>
+                            <span class="gallery-tag">Residential</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="exterior residential">
+                    <img src="gallery/beach-house-exterior.jpg" alt="Beach House Exterior">
+                    <div class="gallery-overlay">
+                        <h3>Coastal Home Exterior</h3>
+                        <p>Del Mar, CA</p>
+                        <p>Full exterior repaint with weather protection</p>
+                        <div class="gallery-tags">
+                            <span class="gallery-tag">Exterior</span>
+                            <span class="gallery-tag">Residential</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="cabinet residential">
+                    <img src="gallery/kitchen-cabinets.jpg" alt="Kitchen Cabinet Refinishing">
+                    <div class="gallery-overlay">
+                        <h3>Kitchen Cabinet Refinishing</h3>
+                        <p>Encinitas, CA</p>
+                        <p>From dated oak to modern white</p>
+                        <div class="gallery-tags">
+                            <span class="gallery-tag">Cabinets</span>
+                            <span class="gallery-tag">Residential</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="commercial interior">
+                    <img src="gallery/office-space.jpg" alt="Modern Office Space">
+                    <div class="gallery-overlay">
+                        <h3>Corporate Office</h3>
+                        <p>Downtown San Diego</p>
+                        <p>Professional office makeover</p>
+                        <div class="gallery-tags">
+                            <span class="gallery-tag">Commercial</span>
+                            <span class="gallery-tag">Interior</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="interior residential">
+                    <img src="gallery/master-bedroom.jpg" alt="Master Bedroom">
+                    <div class="gallery-overlay">
+                        <h3>Master Bedroom Suite</h3>
+                        <p>Carlsbad, CA</p>
+                        <p>Elegant accent wall design</p>
+                        <div class="gallery-tags">
+                            <span class="gallery-tag">Interior</span>
+                            <span class="gallery-tag">Residential</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="commercial interior">
+                    <img src="gallery/restaurant.jpg" alt="Restaurant Interior">
+                    <div class="gallery-overlay">
+                        <h3>Restaurant Interior</h3>
+                        <p>Gaslamp Quarter</p>
+                        <p>Complete dining room refresh</p>
+                        <div class="gallery-tags">
+                            <span class="gallery-tag">Commercial</span>
+                            <span class="gallery-tag">Interior</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="exterior residential">
+                    <img src="gallery/spanish-home.jpg" alt="Spanish Style Home">
+                    <div class="gallery-overlay">
+                        <h3>Spanish Revival Home</h3>
+                        <p>Mission Hills, CA</p>
+                        <p>Authentic color restoration</p>
+                        <div class="gallery-tags">
+                            <span class="gallery-tag">Exterior</span>
+                            <span class="gallery-tag">Residential</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="interior residential">
+                    <img src="gallery/bathroom.jpg" alt="Bathroom Renovation">
+                    <div class="gallery-overlay">
+                        <h3>Spa Bathroom</h3>
+                        <p>Rancho Santa Fe, CA</p>
+                        <p>Moisture-resistant luxury finish</p>
+                        <div class="gallery-tags">
+                            <span class="gallery-tag">Interior</span>
+                            <span class="gallery-tag">Residential</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="commercial exterior">
+                    <img src="gallery/retail-store.jpg" alt="Retail Store Front">
+                    <div class="gallery-overlay">
+                        <h3>Retail Storefront</h3>
+                        <p>Pacific Beach</p>
+                        <p>Eye-catching commercial exterior</p>
+                        <div class="gallery-tags">
+                            <span class="gallery-tag">Commercial</span>
+                            <span class="gallery-tag">Exterior</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="load-more-container">
+                <button class="load-more-btn" id="loadMoreBtn">Load More Projects</button>
+            </div>
+        </section>
+        
+        <section class="gallery-cta">
+            <h2>Ready to Transform Your Space?</h2>
+            <p>Let's discuss your next painting project</p>
+            <a href="contact.html" class="btn btn-primary">Get Free Estimate</a>
+        </section>
+    </main>
+    
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close" id="lightboxClose">&times;</span>
+            <img src="" alt="" id="lightboxImage">
+            <button class="lightbox-nav lightbox-prev" id="lightboxPrev">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="lightbox-nav lightbox-next" id="lightboxNext">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Include footer from index.html -->
+    
+    <script>
+// Gallery Filter
+const filterButtons = document.querySelectorAll('.filter-btn');
+const galleryItems = document.querySelectorAll('.gallery-item');
+
+filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        // Update active state
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        const filter = btn.getAttribute('data-filter');
+        
+        galleryItems.forEach(item => {
+            if (filter === 'all') {
+                item.style.display = 'block';
+            } else {
+                const categories = item.getAttribute('data-category');
+                if (categories.includes(filter)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            }
+        });
+    });
+});
+
+// Lightbox
+const lightbox = document.getElementById('lightbox');
+const lightboxImage = document.getElementById('lightboxImage');
+const lightboxClose = document.getElementById('lightboxClose');
+const lightboxPrev = document.getElementById('lightboxPrev');
+const lightboxNext = document.getElementById('lightboxNext');
+
+let currentImageIndex = 0;
+let galleryImages = [];
+
+galleryItems.forEach((item, index) => {
+    const img = item.querySelector('img');
+    galleryImages.push(img.src);
+    
+    item.addEventListener('click', () => {
+        currentImageIndex = index;
+        showLightboxImage();
+        lightbox.classList.add('active');
+    });
+});
+
+function showLightboxImage() {
+    lightboxImage.src = galleryImages[currentImageIndex];
+}
+
+lightboxClose.addEventListener('click', () => {
+    lightbox.classList.remove('active');
+});
+
+lightboxPrev.addEventListener('click', () => {
+    currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+    showLightboxImage();
+});
+
+lightboxNext.addEventListener('click', () => {
+    currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+    showLightboxImage();
+});
+
+lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+        lightbox.classList.remove('active');
+    }
+});
+
+// Load More
+const loadMoreBtn = document.getElementById('loadMoreBtn');
+loadMoreBtn.addEventListener('click', () => {
+    // Simulate loading more projects
+    alert('More projects would load here. This is a demo.');
+});
+
+// Keyboard navigation for lightbox
+document.addEventListener('keydown', (e) => {
+    if (lightbox.classList.contains('active')) {
+        if (e.key === 'ArrowLeft') {
+            lightboxPrev.click();
+        } else if (e.key === 'ArrowRight') {
+            lightboxNext.click();
+        } else if (e.key === 'Escape') {
+            lightbox.classList.remove('active');
+        }
+    }
+});
+    </script>
+</body>
+</html>
